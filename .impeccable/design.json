@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T07:34:49.681Z",
+  "title": "Design System: DeliveryPilot",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "background"
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "foreground"
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "card"
+      },
+      "card-foreground": {
+        "role": "neutral",
+        "displayName": "card foreground"
+      },
+      "popover": {
+        "role": "neutral",
+        "displayName": "popover"
+      },
+      "popover-foreground": {
+        "role": "neutral",
+        "displayName": "popover foreground"
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "primary"
+      },
+      "primary-foreground": {
+        "role": "primary",
+        "displayName": "primary foreground"
+      },
+      "secondary": {
+        "role": "neutral",
+        "displayName": "secondary"
+      },
+      "secondary-foreground": {
+        "role": "neutral",
+        "displayName": "secondary foreground"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "muted"
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "muted foreground"
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "accent"
+      },
+      "accent-foreground": {
+        "role": "secondary",
+        "displayName": "accent foreground"
+      },
+      "destructive": {
+        "role": "neutral",
+        "displayName": "destructive"
+      },
+      "destructive-foreground": {
+        "role": "neutral",
+        "displayName": "destructive foreground"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "border"
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "input"
+      },
+      "ring": {
+        "role": "neutral",
+        "displayName": "ring"
+      },
+      "dark-background": {
+        "role": "neutral",
+        "displayName": "dark background"
+      },
+      "dark-foreground": {
+        "role": "neutral",
+        "displayName": "dark foreground"
+      },
+      "dark-card": {
+        "role": "neutral",
+        "displayName": "dark card"
+      },
+      "dark-card-foreground": {
+        "role": "neutral",
+        "displayName": "dark card foreground"
+      },
+      "dark-popover": {
+        "role": "neutral",
+        "displayName": "dark popover"
+      },
+      "dark-popover-foreground": {
+        "role": "neutral",
+        "displayName": "dark popover foreground"
+      },
+      "dark-primary": {
+        "role": "primary",
+        "displayName": "dark primary"
+      },
+      "dark-primary-foreground": {
+        "role": "primary",
+        "displayName": "dark primary foreground"
+      },
+      "dark-secondary": {
+        "role": "neutral",
+        "displayName": "dark secondary"
+      },
+      "dark-secondary-foreground": {
+        "role": "neutral",
+        "displayName": "dark secondary foreground"
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "dark muted"
+      },
+      "dark-muted-foreground": {
+        "role": "neutral",
+        "displayName": "dark muted foreground"
+      },
+      "dark-accent": {
+        "role": "secondary",
+        "displayName": "dark accent"
+      },
+      "dark-accent-foreground": {
+        "role": "secondary",
+        "displayName": "dark accent foreground"
+      },
+      "dark-destructive": {
+        "role": "neutral",
+        "displayName": "dark destructive"
+      },
+      "dark-destructive-foreground": {
+        "role": "neutral",
+        "displayName": "dark destructive foreground"
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "dark border"
+      },
+      "dark-input": {
+        "role": "neutral",
+        "displayName": "dark input"
+      },
+      "dark-ring": {
+        "role": "neutral",
+        "displayName": "dark ring"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Hero",
+        "purpose": "Existing maximum type size."
+      },
+      "headline": {
+        "displayName": "Section heading",
+        "purpose": "Section hierarchy."
+      },
+      "title": {
+        "displayName": "Article title",
+        "purpose": "Record and capability headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Explanatory copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation and metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-sm",
+        "value": "0 1px 2px rgb(15 23 42 / 0.08)",
+        "purpose": "Cards, outlined controls and fields."
+      },
+      {
+        "name": "shadow-md",
+        "value": "0 4px 12px rgb(15 23 42 / 0.12)",
+        "purpose": "Featured record, Sheet and Dialog."
+      }
+    ],
+    "motion": [
+      {
+        "name": "functional-transition",
+        "value": "150ms ease-out",
+        "purpose": "Existing color, opacity and disclosure feedback."
+      },
+      {
+        "name": "reduced-motion-duration",
+        "value": "0.01ms",
+        "purpose": "Existing reduced-motion override."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ],
+    "provenance": {
+      "authority": ["docs/ui/UI-RULES.md", "AGENTS.md", "src/index.css"],
+      "sources": [
+        "PRODUCT.md",
+        "docs/product.md",
+        "docs/ui/AGENT-BRIEF.md",
+        "docs/frontend/architecture.md",
+        ".impeccable/surfaces/src-pages-homepage-tsx.md",
+        "components.json",
+        "src/components/ui/*",
+        "src/features/marketing/*",
+        "src/layouts/MarketingHeader.tsx",
+        "src/layouts/MarketingFooter.tsx"
+      ],
+      "visualEvidence": [".impeccable/review/narrow.jpg"],
+      "knownGaps": [
+        "No tonal ramps: synthesis would introduce forbidden colors.",
+        "Static component samples do not reproduce Radix behavior, routing or application focus handling.",
+        "This extraction is not separate accessibility certification or a connected-product specification.",
+        "No shipping raster assets."
+      ],
+      "notCanonized": [
+        "System font remains an explicit project constraint despite generic display-font craft preferences.",
+        "Role labels remain content, not a decorative eyebrow token."
+      ],
+      "themeMapping": "Unprefixed colors record :root; dark-prefixed colors record .dark. Samples use live CSS properties."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Existing default-size Button treatment.",
+      "html": "<button class=\"ds-button-primary\">Primary Button</button>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.5rem 1rem;border-radius:var(--radius-md);font-family:var(--dp-font-sans);font-size:.875rem;font-weight:500;line-height:1.25rem;transition:color 150ms ease-out,background-color 150ms ease-out;border:0;background:var(--primary);color:var(--primary-foreground);}.ds-button-primary:hover{background:color-mix(in oklab,var(--primary) 90%,transparent);}.ds-button-primary:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.ds-button-primary:disabled{pointer-events:none;opacity:.5}@media(prefers-reduced-motion:reduce){.ds-button-primary{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Existing default-size Button treatment.",
+      "html": "<button class=\"ds-button-outline\">Outline Button</button>",
+      "css": ".ds-button-outline{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.5rem 1rem;border-radius:var(--radius-md);font-family:var(--dp-font-sans);font-size:.875rem;font-weight:500;line-height:1.25rem;transition:color 150ms ease-out,background-color 150ms ease-out;border:1px solid var(--border);background:var(--background);color:var(--foreground);box-shadow:var(--dp-shadow-1);}.ds-button-outline:hover{background:var(--accent);color:var(--accent-foreground);}.ds-button-outline:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.ds-button-outline:disabled{pointer-events:none;opacity:.5}@media(prefers-reduced-motion:reduce){.ds-button-outline{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Existing default-size Button treatment.",
+      "html": "<button class=\"ds-button-ghost\">Ghost Button</button>",
+      "css": ".ds-button-ghost{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.5rem 1rem;border-radius:var(--radius-md);font-family:var(--dp-font-sans);font-size:.875rem;font-weight:500;line-height:1.25rem;transition:color 150ms ease-out,background-color 150ms ease-out;border:0;background:transparent;color:var(--foreground);}.ds-button-ghost:hover{background:var(--accent);color:var(--accent-foreground);}.ds-button-ghost:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.ds-button-ghost:disabled{pointer-events:none;opacity:.5}@media(prefers-reduced-motion:reduce){.ds-button-ghost{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Link Button",
+      "kind": "button",
+      "refersTo": "button-link",
+      "description": "Existing default-size Button treatment.",
+      "html": "<button class=\"ds-button-link\">Link Button</button>",
+      "css": ".ds-button-link{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;padding:.5rem 1rem;border-radius:var(--radius-md);font-family:var(--dp-font-sans);font-size:.875rem;font-weight:500;line-height:1.25rem;transition:color 150ms ease-out,background-color 150ms ease-out;border:0;background:transparent;color:var(--primary);text-underline-offset:4px;}.ds-button-link:hover{text-decoration:underline;}.ds-button-link:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.ds-button-link:disabled{pointer-events:none;opacity:.5}@media(prefers-reduced-motion:reduce){.ds-button-link{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Existing labelled field; no form behavior is simulated.",
+      "html": "<label class=\"ds-label\" for=\"ds-field\">Workspace name</label><input class=\"ds-field\" id=\"ds-field\" placeholder=\"Workspace name\" />",
+      "css": ".ds-label{display:flex;margin-bottom:.5rem;color:var(--foreground);font-family:var(--dp-font-sans);font-size:.875rem;font-weight:500}.ds-field{min-height:2.75rem;min-width:0;width:100%;border:1px solid var(--input);border-radius:var(--radius-md);background:transparent;padding:.25rem .75rem;color:var(--foreground);font:1rem var(--dp-font-sans);box-shadow:var(--dp-shadow-1);transition:border-color 150ms ease-out}.ds-field::placeholder{color:var(--muted-foreground)}.ds-field:focus-visible{border-color:var(--ring);outline:2px solid var(--ring);outline-offset:2px;box-shadow:0 0 0 2px var(--ring)}.ds-field:disabled{pointer-events:none;opacity:.5}.ds-field[aria-invalid=true]{border-color:var(--destructive)}@media(prefers-reduced-motion:reduce){.ds-field{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Secondary Badge",
+      "kind": "chip",
+      "refersTo": "badge-secondary",
+      "description": "Existing noninteractive metadata pill.",
+      "html": "<span class=\"ds-badge-secondary\">Example</span>",
+      "css": ".ds-badge-secondary{display:inline-flex;align-items:center;gap:.25rem;border:1px solid transparent;border-radius:calc(infinity * 1px);padding:.25rem .5rem;font-family:var(--dp-font-sans);font-size:.875rem;font-weight:500;line-height:1.25rem;background:var(--secondary);color:var(--secondary-foreground);}"
+    },
+    {
+      "name": "Outline Badge",
+      "kind": "chip",
+      "refersTo": "badge-outline",
+      "description": "Existing noninteractive metadata pill.",
+      "html": "<span class=\"ds-badge-outline\">Version 2</span>",
+      "css": ".ds-badge-outline{display:inline-flex;align-items:center;gap:.25rem;border:1px solid var(--border);border-radius:calc(infinity * 1px);padding:.25rem .5rem;font-family:var(--dp-font-sans);font-size:.875rem;font-weight:500;line-height:1.25rem;color:var(--foreground);}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Existing bounded data-group surface.",
+      "html": "<section class=\"ds-card\"><h3 class=\"ds-card-title\">A connected delivery record</h3><p class=\"ds-card-copy\">Concept illustration, not live product data.</p></section>",
+      "css": ".ds-card{display:flex;flex-direction:column;gap:1.5rem;border:1px solid var(--border);border-radius:var(--radius-xl);background:var(--card);padding:1.5rem 0;color:var(--card-foreground);box-shadow:var(--dp-shadow-1);font-family:var(--dp-font-sans)}.ds-card-title{margin:0;padding:0 1.5rem;font-size:1rem;font-weight:600;line-height:1}.ds-card-copy{margin:0;padding:0 1.5rem;font-size:.875rem;line-height:1.25rem;color:var(--muted-foreground)}"
+    },
+    {
+      "name": "Homepage Navigation",
+      "kind": "nav",
+      "description": "Inline section-link styling; mobile Sheet behavior stays in source.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Homepage sections\"><a class=\"ds-nav-link\" href=\"#approach\">Approach</a><a class=\"ds-nav-link\" href=\"#capabilities\">Capabilities</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;font-family:var(--dp-font-sans)}.ds-nav-link{display:inline-flex;align-items:center;min-height:2.75rem;color:var(--muted-foreground);font-size:.875rem;font-weight:500;line-height:1.25rem;text-decoration:none;transition:color 150ms ease-out}.ds-nav-link:hover{color:var(--foreground)}.ds-nav-link:focus-visible{outline:2px solid var(--ring);outline-offset:2px}@media(prefers-reduced-motion:reduce){.ds-nav-link{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Connected Record Outcomes",
+      "kind": "custom",
+      "description": "Verification, acceptance and release remain independently readable.",
+      "html": "<dl class=\"ds-outcomes\"><div class=\"ds-outcome\"><dt>QA verification</dt><dd>Evidence pending</dd></div><div class=\"ds-outcome\"><dt>Client acceptance</dt><dd>Review pending</dd></div><div class=\"ds-outcome\"><dt>Release</dt><dd>Not released</dd></div></dl>",
+      "css": ".ds-outcomes{margin:0;font-family:var(--dp-font-sans);font-size:.875rem;line-height:1.25rem;color:var(--foreground)}.ds-outcome{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;padding:.75rem 0}.ds-outcome+.ds-outcome{border-top:1px solid var(--border)}.ds-outcome dt{color:var(--muted-foreground)}.ds-outcome dd{margin:0;font-weight:500}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Connected context",
+    "overview": "A calm, accountable interface uses cool neutral surfaces, semantic blue emphasis, system typography and fine separators to keep relationships understandable. Depth is restrained and information remains explicit in both themes.\n\nThe finished homepage expresses this through a connected delivery record, varied editorial sections and a linked workflow. These are observed homepage patterns, not mandatory compositions for every future screen.",
+    "keyCharacteristics": [
+      "Semantic light and dark color roles.",
+      "System typography and a four-pixel spacing rhythm.",
+      "Explicit relationships, readable labels and modest preview claims."
+    ],
+    "rules": [
+      {
+        "name": "The Semantic Pair Rule",
+        "body": "Use each surface with its paired foreground; status meaning also needs text.",
+        "section": "colors"
+      },
+      {
+        "name": "The System Type Rule",
+        "body": "Keep the existing system sans stack and type scale, capped at text-4xl.",
+        "section": "typography"
+      },
+      {
+        "name": "The Restrained Depth Rule",
+        "body": "Use the two existing shadows for contained records and overlays; ordinary separation uses borders and tonal surfaces.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do compose existing shadcn primitives and semantic HTML.",
+      "Do retain readable wrapping, visible focus, reduced motion and both themes.",
+      "Do label illustrative records and keep work, verification, acceptance and release distinct."
+    ],
+    "donts": [
+      "Don't change frozen tokens, generated primitives, dependencies or routes without explicit approval.",
+      "Don't add fonts, colors, gradients, decorative imagery, motion or component variants.",
+      "Don't turn role labels, example approvals or preview actions into authorization or successful-write claims."
+    ]
+  }
+}

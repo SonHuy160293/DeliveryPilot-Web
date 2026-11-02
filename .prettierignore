@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.cache/
+coverage/
+package-lock.json
+docs/product.md
+docs/ui/
+src/index.css
+.agents/skills/
+.impeccable/questions/
