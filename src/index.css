@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* One-time bootstrap tokens. Feature agents MUST NOT change this file. */
+:root {
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #1d4ed8;
+  --primary-foreground: #ffffff;
+  --secondary: #e2e8f0;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  --accent: #dbeafe;
+  --accent-foreground: #1e40af;
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+  --border: #cbd5e1;
+  --input: #64748b;
+  --ring: #1d4ed8;
+
+  --radius: 0.625rem;
+  --dp-space-unit: 0.25rem;
+  --dp-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --dp-text-xs: 0.75rem;
+  --dp-text-sm: 0.875rem;
+  --dp-text-base: 1rem;
+  --dp-text-lg: 1.125rem;
+  --dp-text-xl: 1.25rem;
+  --dp-text-2xl: 1.5rem;
+  --dp-text-3xl: 1.875rem;
+  --dp-text-4xl: 2.25rem;
+  --dp-shadow-1: 0 1px 2px rgb(15 23 42 / 0.08);
+  --dp-shadow-2: 0 4px 12px rgb(15 23 42 / 0.12);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0b1220;
+  --foreground: #f8fafc;
+  --card: #111c2e;
+  --card-foreground: #f8fafc;
+  --popover: #111c2e;
+  --popover-foreground: #f8fafc;
+  --primary: #93c5fd;
+  --primary-foreground: #0b1220;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #cbd5e1;
+  --accent: #1e3a5f;
+  --accent-foreground: #f8fafc;
+  --destructive: #fca5a5;
+  --destructive-foreground: #450a0a;
+  --border: #64748b;
+  --input: #64748b;
+  --ring: #93c5fd;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: calc(var(--radius) - 0.125rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+
+  --spacing: var(--dp-space-unit);
+  --font-sans: var(--dp-font-sans);
+  --text-xs: var(--dp-text-xs);
+  --text-sm: var(--dp-text-sm);
+  --text-base: var(--dp-text-base);
+  --text-lg: var(--dp-text-lg);
+  --text-xl: var(--dp-text-xl);
+  --text-2xl: var(--dp-text-2xl);
+  --text-3xl: var(--dp-text-3xl);
+  --text-4xl: var(--dp-text-4xl);
+  --shadow-sm: var(--dp-shadow-1);
+  --shadow-md: var(--dp-shadow-2);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background font-sans text-base text-foreground antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
