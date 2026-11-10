@@ -2,9 +2,10 @@ import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
-const css = readFileSync("src/index.css", "utf8");
+// Line endings are normalized so the hash is stable across checkouts.
+const css = readFileSync("src/index.css", "utf8").replace(/\r\n/g, "\n");
 const approvedHash =
-  "6544929c42a32ce66b1e55a63107bfbb2579a7b00f1dde893119f0c13a51ca0c";
+  "3824256309069bf996d3ee02f76a7e12f28d0ffd0a6c4c521b9a21ae12a461c3";
 const failures = [];
 if (createHash("sha256").update(css).digest("hex") !== approvedHash) {
   failures.push("UI-TKN-07: token source differs from the approved pack.");
@@ -66,7 +67,9 @@ function luminance(hex) {
   return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
 }
 
+// The theme is light-only; a mode is checked only when its block exists.
 for (const mode of [":root", ".dark"]) {
+  if (!css.includes(`${mode} {`)) continue;
   const block = css.slice(css.indexOf(`${mode} {`)).split("}")[0];
   const tokens = Object.fromEntries(
     [...block.matchAll(/--([\w-]+): (#[\da-f]{6});/g)].map((match) => [

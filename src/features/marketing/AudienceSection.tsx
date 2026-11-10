@@ -52,7 +52,7 @@ export function AudienceSection() {
               className="h-auto max-w-full whitespace-normal px-0"
             >
               <Link to={ROUTES.workspaces}>
-                Explore the workspace preview{" "}
+                Open the app{" "}
                 <ArrowRight aria-hidden="true" data-icon="inline-end" />
               </Link>
             </Button>
@@ -63,7 +63,7 @@ export function AudienceSection() {
                 key={item.role}
                 className="flex flex-col gap-3 border-t border-border pt-4"
               >
-                <dt className="text-sm font-medium text-primary">
+                <dt className="text-sm font-medium text-brand-strong">
                   {item.role}
                 </dt>
                 <dd className="flex flex-col gap-2">
@@ -81,17 +81,17 @@ export function AudienceSection() {
         aria-labelledby="closing-title"
         className="px-4 pb-12 md:px-6 md:pb-16"
       >
-        <div className="mx-auto grid max-w-6xl gap-8 rounded-xl bg-accent px-6 py-12 text-accent-foreground md:grid-cols-2 md:items-center md:px-8">
+        <div className="mx-auto grid max-w-6xl gap-8 rounded-xl bg-accent px-6 py-12 text-foreground md:grid-cols-2 md:items-center md:px-8">
           <div className="flex flex-col gap-4">
             <h2
               id="closing-title"
-              className="text-3xl font-semibold leading-tight tracking-tight text-balance"
+              className="text-3xl font-semibold leading-tight tracking-tight text-balance text-brand-strong"
             >
               Make the next delivery decision with context.
             </h2>
             <p className="text-base leading-relaxed">
-              Start with the DeliveryPilot interface preview. See the foundation
-              for a more connected delivery record.
+              Create an account, set up a workspace and invite the people you
+              deliver with.
             </p>
           </div>
           <div className="flex flex-col items-start gap-4 md:items-end">
@@ -101,9 +101,6 @@ export function AudienceSection() {
                 <ArrowRight aria-hidden="true" data-icon="inline-end" />
               </Link>
             </Button>
-            <p className="max-w-xs text-sm leading-relaxed md:text-right">
-              Registration is a UI preview. No account or workspace is created.
-            </p>
           </div>
         </div>
       </section>

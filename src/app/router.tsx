@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useMatch } from "react-router";
+import { BrowserRouter, Link, Route, Routes, useMatch } from "react-router";
 import {
   AnonymousOnly,
   RequireAuth,
@@ -18,6 +18,7 @@ import { WorkspaceSwitcher } from "@/features/workspaces/components/WorkspaceSwi
 import {
   Breadcrumb,
   BreadcrumbItem,
+  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -91,17 +92,29 @@ function RouteTree() {
 
 function AuthenticatedLayout() {
   const portfolio = useMatch(ROUTES.workspaces);
-  const breadcrumbs = portfolio ? (
+  const breadcrumbs = (
     <Breadcrumb>
       <BreadcrumbList>
-        <BreadcrumbItem>Personal portfolio</BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Workspaces</BreadcrumbPage>
-        </BreadcrumbItem>
+        {portfolio ? (
+          <BreadcrumbItem>
+            <BreadcrumbPage>Workspaces</BreadcrumbPage>
+          </BreadcrumbItem>
+        ) : (
+          <>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to={ROUTES.workspaces}>Workspaces</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Workspace</BreadcrumbPage>
+            </BreadcrumbItem>
+          </>
+        )}
       </BreadcrumbList>
     </Breadcrumb>
-  ) : undefined;
+  );
   return (
     <AppLayout
       breadcrumbs={breadcrumbs}

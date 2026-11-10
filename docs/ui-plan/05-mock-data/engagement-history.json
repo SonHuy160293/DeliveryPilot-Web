@@ -1,0 +1,76 @@
+{
+  "_note": "Shape: Page<EngagementHistoryEntry> [DTO] for engagement 019a3000-…-0001. eventType values are [ASSUMPTION]; map unknown values to 'Engagement updated'. Link codes never appear.",
+  "items": [
+    {
+      "id": "019a3300-0000-7000-8000-000000000006",
+      "eventType": "MilestoneDateChanged",
+      "subjectType": "Milestone",
+      "subjectId": "019a3100-0000-7000-8000-000000000002",
+      "actorUserId": "019a2000-0000-7000-8000-000000000003",
+      "actorOrganizationId": "019a1000-0000-7000-8000-000000000001",
+      "occurredAt": "2026-11-03T08:30:00Z",
+      "reason": "Client asked to move beta after the holiday trading freeze.",
+      "details": {
+        "previousTargetDate": "2026-12-15",
+        "newTargetDate": "2027-01-12"
+      },
+      "engagementVersion": 9
+    },
+    {
+      "id": "019a3300-0000-7000-8000-000000000005",
+      "eventType": "MilestoneStatusChanged",
+      "subjectType": "Milestone",
+      "subjectId": "019a3100-0000-7000-8000-000000000001",
+      "actorUserId": "019a2000-0000-7000-8000-000000000003",
+      "actorOrganizationId": "019a1000-0000-7000-8000-000000000001",
+      "occurredAt": "2026-10-10T07:00:00Z",
+      "reason": null,
+      "details": { "previousStatus": "Planned", "newStatus": "Achieved" },
+      "engagementVersion": 8
+    },
+    {
+      "id": "019a3300-0000-7000-8000-000000000004",
+      "eventType": "ClientLinkConfirmed",
+      "subjectType": "Engagement",
+      "subjectId": "019a3000-0000-7000-8000-000000000001",
+      "actorUserId": "019a2000-0000-7000-8000-000000000007",
+      "actorOrganizationId": "019a1000-0000-7000-8000-000000000002",
+      "occurredAt": "2026-09-20T02:40:00Z",
+      "reason": null,
+      "details": {},
+      "engagementVersion": 7
+    },
+    {
+      "id": "019a3300-0000-7000-8000-000000000003",
+      "eventType": "ContractValueChanged",
+      "subjectType": "Engagement",
+      "subjectId": "019a3000-0000-7000-8000-000000000001",
+      "actorUserId": "019a2000-0000-7000-8000-000000000001",
+      "actorOrganizationId": "019a1000-0000-7000-8000-000000000001",
+      "occurredAt": "2026-09-16T03:00:00Z",
+      "reason": "From signed SOW, schedule B.",
+      "details": {
+        "previousContractAmount": null,
+        "newContractAmount": 185000.0,
+        "previousContractCurrency": null,
+        "newContractCurrency": "AUD",
+        "previousPlannedEffortPersonDays": null,
+        "newPlannedEffortPersonDays": 420.0
+      },
+      "engagementVersion": 6
+    },
+    {
+      "id": "019a3300-0000-7000-8000-000000000001",
+      "eventType": "EngagementCreated",
+      "subjectType": "Engagement",
+      "subjectId": "019a3000-0000-7000-8000-000000000001",
+      "actorUserId": "019a2000-0000-7000-8000-000000000003",
+      "actorOrganizationId": "019a1000-0000-7000-8000-000000000001",
+      "occurredAt": "2026-09-16T02:12:00Z",
+      "reason": null,
+      "details": {},
+      "engagementVersion": 1
+    }
+  ],
+  "nextCursor": null
+}

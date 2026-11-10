@@ -15,7 +15,7 @@ export function HomeHero() {
           >
             Know what’s committed.
             <br />
-            <span className="text-primary">Trace the evidence.</span>
+            <span className="text-brand-strong">Trace the evidence.</span>
           </h1>
           <p className="max-w-md text-lg leading-relaxed text-muted-foreground">
             Software delivery management for engineering and delivery leaders.
@@ -34,12 +34,12 @@ export function HomeHero() {
               variant="outline"
               className="h-auto max-w-full whitespace-normal"
             >
-              <Link to={ROUTES.workspaces}>Explore the preview</Link>
+              <Link to={ROUTES.workspaces}>Open the app</Link>
             </Button>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            Product preview. Explore the interface today; delivery workflows and
-            account creation are not connected yet.
+            Early access. Accounts and workspaces are available today; the
+            delivery workflows illustrated on this page are in development.
           </p>
         </div>
         <div className="min-w-0 lg:col-span-7">

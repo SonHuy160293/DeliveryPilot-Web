@@ -8,7 +8,10 @@ import { ReadState } from "@/features/workspaces/components/ReadState";
 import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
 import { RoleBadges } from "@/features/workspaces/components/RoleBadges";
 import { MemberActions } from "@/features/workspaces/members/MemberActions";
-import { formatInstant } from "@/features/workspaces/model/formatters";
+import {
+  formatInstant,
+  formatStatus,
+} from "@/features/workspaces/model/formatters";
 
 export function MemberDetail({
   scope,
@@ -30,7 +33,7 @@ export function MemberDetail({
             {query.data.displayName}
           </h3>
           <p className="break-all text-sm">
-            {query.data.primaryEmail} · {query.data.status}
+            {query.data.primaryEmail} · {formatStatus(query.data.status)}
           </p>
           <RoleBadges roles={query.data.roles} />
           <p className="text-sm">Joined {formatInstant(query.data.joinedAt)}</p>

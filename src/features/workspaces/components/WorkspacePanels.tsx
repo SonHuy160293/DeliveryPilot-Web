@@ -1,10 +1,16 @@
 import { lazy, Suspense, useState } from "react";
+import { useSearchParams } from "react-router";
 import { ScreenState } from "@/components/ScreenState";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { Member } from "@/features/workspaces/api/contracts";
 import type { ScopedOwner } from "@/features/workspaces/api/queries";
+import {
+  WORKSPACE_SECTIONS,
+  WORKSPACE_SECTION_PARAM,
+  readWorkspaceSection,
+  type WorkspaceSection,
+} from "@/lib/workspaceSections";
 import { OwnMembership } from "@/features/workspaces/components/OwnMembership";
-import { Button } from "@/components/ui/button";
 
 const Members = lazy(
   () => import("@/features/workspaces/members/MembersPanel"),
@@ -17,7 +23,11 @@ const Ownership = lazy(
   () => import("@/features/workspaces/ownership/OwnershipPanel"),
 );
 const Audit = lazy(() => import("@/features/workspaces/audit/AuditPanel"));
-const panels = [
+const panels: readonly {
+  value: WorkspaceSection;
+  label: string;
+  Component: typeof Members;
+}[] = [
   { value: "members", label: "Members", Component: Members },
   { value: "roles", label: "Roles", Component: Roles },
   { value: "invitations", label: "Invitations", Component: Invitations },
@@ -31,55 +41,40 @@ export function WorkspacePanels({
   scope: ScopedOwner;
   me: Member;
 }) {
-  const [section, setSection] = useState("overview");
+  const [params, setParams] = useSearchParams();
+  const section = readWorkspaceSection(params);
   const [rolesVisited, setRolesVisited] = useState(false);
+  // Keep the roles editor mounted once opened, however it was reached (tab or sidebar link).
+  if (section === "roles" && !rolesVisited) setRolesVisited(true);
   return (
     <Tabs
       value={section}
       onValueChange={(next) => {
-        if (next === "roles") setRolesVisited(true);
-        setSection(next);
+        setParams((current) => {
+          const updated = new URLSearchParams(current);
+          if (next === "overview") updated.delete(WORKSPACE_SECTION_PARAM);
+          else updated.set(WORKSPACE_SECTION_PARAM, next);
+          return updated;
+        });
       }}
       activationMode="manual"
     >
       <TabsList
         aria-label="Workspace sections"
-        className="w-full flex-nowrap justify-start overflow-x-auto"
+        className="w-full flex-nowrap justify-start overflow-x-auto md:hidden"
       >
-        <TabsTrigger value="overview">Overview</TabsTrigger>
-        {panels.map((panel) => (
-          <TabsTrigger key={panel.value} value={panel.value}>
-            {panel.label}
+        {WORKSPACE_SECTIONS.map((item) => (
+          <TabsTrigger key={item.value} value={item.value}>
+            {item.label}
           </TabsTrigger>
         ))}
       </TabsList>
       <TabsContent value="overview">
-        <p className="mb-4 text-sm text-muted-foreground">
+        <p className="mb-6 text-sm text-muted-foreground">
           A workspace brings people together around delivery work. Project
           access is managed separately.
         </p>
         <OwnMembership scope={scope} me={me} />
-        <section
-          className="mt-6 flex flex-col gap-3"
-          aria-label="Workspace sections"
-        >
-          <h2 className="text-lg font-semibold">Explore this workspace</h2>
-          <div className="flex flex-wrap gap-3">
-            {panels.map((panel) => (
-              <Button
-                key={panel.value}
-                type="button"
-                variant="outline"
-                onClick={() => {
-                  if (panel.value === "roles") setRolesVisited(true);
-                  setSection(panel.value);
-                }}
-              >
-                {panel.label}
-              </Button>
-            ))}
-          </div>
-        </section>
       </TabsContent>
       {panels.map(({ value, label, Component }) => (
         <TabsContent

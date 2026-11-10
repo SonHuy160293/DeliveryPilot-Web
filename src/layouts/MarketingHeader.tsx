@@ -24,7 +24,7 @@ export function MarketingHeader() {
           aria-label="DeliveryPilot home"
           className="min-w-0 text-lg font-bold tracking-tight"
         >
-          Delivery<span className="text-primary">Pilot</span>
+          Delivery<span className="text-brand-strong">Pilot</span>
         </Link>
         <nav
           aria-label="Homepage sections"
@@ -69,7 +69,7 @@ export function MarketingHeader() {
               <SheetHeader>
                 <SheetTitle>Explore DeliveryPilot</SheetTitle>
                 <SheetDescription>
-                  Explore the product direction or open the interface preview.
+                  Explore the product direction or open the app.
                 </SheetDescription>
               </SheetHeader>
               <nav
@@ -100,10 +100,6 @@ export function MarketingHeader() {
                     <Link to={ROUTES.signIn}>Sign in</Link>
                   </Button>
                 </SheetClose>
-                <p className="py-2 text-sm leading-relaxed text-muted-foreground">
-                  Product preview. Authentication and delivery workflows are not
-                  connected.
-                </p>
               </nav>
             </SheetContent>
           </Sheet>

@@ -1,0 +1,233 @@
+{
+  "_note": "Shape: Page<EngagementDetail> [DTO]. Workspace: Northwind Delivery Studio. Fictional records.",
+  "items": [
+    {
+      "id": "019a3000-0000-7000-8000-000000000001",
+      "organizationId": "019a1000-0000-7000-8000-000000000001",
+      "clientDisplayName": "Larkspur Retail Group",
+      "clientLegalName": "Larkspur Retail Group Pty Ltd",
+      "clientCountryCode": "AU",
+      "engagementName": "Loyalty platform rebuild",
+      "agreementReference": "LRG-2026-014",
+      "agreementSignedOn": "2026-09-15",
+      "documentUrl": "https://contracts.northwind.example/lrg-2026-014",
+      "contractAmount": 185000.0,
+      "contractCurrency": "AUD",
+      "plannedEffortPersonDays": 420.0,
+      "status": "Active",
+      "closedAt": null,
+      "closedByUserId": null,
+      "clientOrganizationId": "019a1000-0000-7000-8000-000000000002",
+      "clientLinkedAt": "2026-09-20T02:40:00Z",
+      "clientLinkedByUserId": "019a2000-0000-7000-8000-000000000007",
+      "hasOutstandingLinkCode": false,
+      "linkCodeExpiresAt": null,
+      "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+      "createdAt": "2026-09-16T02:12:00Z",
+      "updatedAt": "2026-11-03T08:30:00Z",
+      "version": 9,
+      "contacts": [
+        {
+          "id": "019a3200-0000-7000-8000-000000000001",
+          "name": "Tomasz Nowak",
+          "email": "tomasz.nowak@larkspur.example",
+          "contactRole": "ClientProductOwner",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+          "createdAt": "2026-09-16T02:20:00Z",
+          "updatedAt": "2026-09-16T02:20:00Z",
+          "version": 1
+        },
+        {
+          "id": "019a3200-0000-7000-8000-000000000002",
+          "name": "Priya Raman",
+          "email": "priya.raman@larkspur.example",
+          "contactRole": "Sponsor",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+          "createdAt": "2026-09-16T02:22:00Z",
+          "updatedAt": "2026-09-16T02:22:00Z",
+          "version": 1
+        }
+      ],
+      "milestones": [
+        {
+          "id": "019a3100-0000-7000-8000-000000000001",
+          "name": "Discovery sign-off",
+          "description": "Client approves scope and release plan for Phase 1.",
+          "originalTargetDate": "2026-10-10",
+          "currentTargetDate": "2026-10-10",
+          "status": "Achieved",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+          "createdAt": "2026-09-16T02:30:00Z",
+          "updatedAt": "2026-10-10T07:00:00Z",
+          "version": 2
+        },
+        {
+          "id": "019a3100-0000-7000-8000-000000000002",
+          "name": "Member app beta",
+          "description": "Beta build distributed to 200 staff testers.",
+          "originalTargetDate": "2026-12-15",
+          "currentTargetDate": "2027-01-12",
+          "status": "Planned",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+          "createdAt": "2026-09-16T02:31:00Z",
+          "updatedAt": "2026-11-03T08:30:00Z",
+          "version": 3
+        },
+        {
+          "id": "019a3100-0000-7000-8000-000000000003",
+          "name": "Points engine cut-over",
+          "description": null,
+          "originalTargetDate": "2027-02-20",
+          "currentTargetDate": "2027-02-20",
+          "status": "Planned",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+          "createdAt": "2026-09-16T02:32:00Z",
+          "updatedAt": "2026-09-16T02:32:00Z",
+          "version": 1
+        },
+        {
+          "id": "019a3100-0000-7000-8000-000000000004",
+          "name": "Public launch",
+          "description": "All 48 stores live.",
+          "originalTargetDate": "2027-03-31",
+          "currentTargetDate": "2027-03-31",
+          "status": "Planned",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+          "createdAt": "2026-09-16T02:33:00Z",
+          "updatedAt": "2026-09-16T02:33:00Z",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "id": "019a3000-0000-7000-8000-000000000002",
+      "organizationId": "019a1000-0000-7000-8000-000000000001",
+      "clientDisplayName": "Halden Logistics",
+      "clientLegalName": null,
+      "clientCountryCode": "NO",
+      "engagementName": "Fleet telemetry MVP",
+      "agreementReference": "HL-SOW-07",
+      "agreementSignedOn": "2026-10-02",
+      "documentUrl": null,
+      "contractAmount": null,
+      "contractCurrency": null,
+      "plannedEffortPersonDays": 160.0,
+      "status": "Active",
+      "closedAt": null,
+      "closedByUserId": null,
+      "clientOrganizationId": null,
+      "clientLinkedAt": null,
+      "clientLinkedByUserId": null,
+      "hasOutstandingLinkCode": true,
+      "linkCodeExpiresAt": "2026-11-18T03:30:00Z",
+      "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+      "createdAt": "2026-10-03T01:05:00Z",
+      "updatedAt": "2026-11-11T03:30:00Z",
+      "version": 4,
+      "contacts": [],
+      "milestones": [
+        {
+          "id": "019a3100-0000-7000-8000-000000000005",
+          "name": "Pilot depot live",
+          "description": "60 trucks at the Drammen depot reporting telemetry.",
+          "originalTargetDate": "2027-01-30",
+          "currentTargetDate": "2027-01-30",
+          "status": "Planned",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+          "createdAt": "2026-10-03T01:10:00Z",
+          "updatedAt": "2026-10-03T01:10:00Z",
+          "version": 1
+        },
+        {
+          "id": "019a3100-0000-7000-8000-000000000006",
+          "name": "Fleet roll-out",
+          "description": null,
+          "originalTargetDate": "2027-04-15",
+          "currentTargetDate": "2027-04-15",
+          "status": "Planned",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+          "createdAt": "2026-10-03T01:11:00Z",
+          "updatedAt": "2026-10-03T01:11:00Z",
+          "version": 1
+        }
+      ]
+    },
+    {
+      "id": "019a3000-0000-7000-8000-000000000003",
+      "organizationId": "019a1000-0000-7000-8000-000000000001",
+      "clientDisplayName": "Brightwater Clinics",
+      "clientLegalName": "Brightwater Clinics Ltd",
+      "clientCountryCode": "GB",
+      "engagementName": "Patient intake revamp",
+      "agreementReference": "BWC-0031",
+      "agreementSignedOn": "2026-03-01",
+      "documentUrl": null,
+      "contractAmount": 64000.0,
+      "contractCurrency": "GBP",
+      "plannedEffortPersonDays": 150.5,
+      "status": "Closed",
+      "closedAt": "2026-10-28T09:00:00Z",
+      "closedByUserId": "019a2000-0000-7000-8000-000000000001",
+      "clientOrganizationId": null,
+      "clientLinkedAt": null,
+      "clientLinkedByUserId": null,
+      "hasOutstandingLinkCode": false,
+      "linkCodeExpiresAt": null,
+      "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+      "createdAt": "2026-03-02T04:00:00Z",
+      "updatedAt": "2026-10-28T09:00:00Z",
+      "version": 12,
+      "contacts": [
+        {
+          "id": "019a3200-0000-7000-8000-000000000003",
+          "name": "Eleanor Hughes",
+          "email": "e.hughes@brightwater.example",
+          "contactRole": "ClientProductOwner",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+          "createdAt": "2026-03-02T04:10:00Z",
+          "updatedAt": "2026-03-02T04:10:00Z",
+          "version": 1
+        }
+      ],
+      "milestones": [
+        {
+          "id": "019a3100-0000-7000-8000-000000000007",
+          "name": "Online intake form live",
+          "description": null,
+          "originalTargetDate": "2026-06-30",
+          "currentTargetDate": "2026-07-21",
+          "status": "Achieved",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+          "createdAt": "2026-03-02T04:20:00Z",
+          "updatedAt": "2026-07-21T05:00:00Z",
+          "version": 3
+        },
+        {
+          "id": "019a3100-0000-7000-8000-000000000008",
+          "name": "Kiosk integration",
+          "description": "Waiting-room kiosks submit intake data.",
+          "originalTargetDate": "2026-09-30",
+          "currentTargetDate": "2026-09-30",
+          "status": "Missed",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+          "createdAt": "2026-03-02T04:21:00Z",
+          "updatedAt": "2026-10-01T05:00:00Z",
+          "version": 2
+        },
+        {
+          "id": "019a3100-0000-7000-8000-000000000009",
+          "name": "Analytics export",
+          "description": null,
+          "originalTargetDate": "2026-10-15",
+          "currentTargetDate": "2026-10-15",
+          "status": "Retired",
+          "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+          "createdAt": "2026-03-02T04:22:00Z",
+          "updatedAt": "2026-10-20T05:00:00Z",
+          "version": 2
+        }
+      ]
+    }
+  ],
+  "nextCursor": null
+}

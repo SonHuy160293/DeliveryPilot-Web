@@ -16,7 +16,7 @@ describe("homepage evaluation journey", () => {
     ).toBeVisible();
     expect(
       screen.getByText(
-        /delivery workflows and account creation are not connected/,
+        /delivery workflows illustrated on this page are in development/,
       ),
     ).toBeVisible();
     expect(screen.getByRole("figure")).toHaveAccessibleName(
@@ -117,7 +117,7 @@ describe("homepage evaluation journey", () => {
     const hero = within(
       screen.getByRole("region", { name: /Know what’s committed/ }),
     );
-    await user.click(hero.getByRole("link", { name: "Explore the preview" }));
+    await user.click(hero.getByRole("link", { name: "Open the app" }));
     expect(screen.getByRole("heading", { name: "Sign in" })).toBeVisible();
   });
 

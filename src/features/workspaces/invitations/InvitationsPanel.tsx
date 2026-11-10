@@ -22,6 +22,7 @@ import { IssueInvitationForm } from "@/features/workspaces/invitations/IssueInvi
 import { InvitationDetail } from "@/features/workspaces/invitations/InvitationDetail";
 import { InvitationSummary } from "@/features/workspaces/invitations/InvitationSummary";
 import { InvitationActions } from "@/features/workspaces/invitations/InvitationActions";
+import { formatStatus } from "@/features/workspaces/model/formatters";
 
 export default function InvitationsPanel({ scope }: { scope: ScopedOwner }) {
   const [status, setStatus] = useState<OfferStatus>("pending");
@@ -94,7 +95,7 @@ export default function InvitationsPanel({ scope }: { scope: ScopedOwner }) {
               className="flex min-w-0 flex-wrap items-center justify-between gap-3 border-b border-border pb-3"
             >
               <span className="min-w-0 break-all">
-                {item.recipientEmail} · {item.status}
+                {item.recipientEmail} · {formatStatus(item.status)}
               </span>
               <Button
                 variant="outline"

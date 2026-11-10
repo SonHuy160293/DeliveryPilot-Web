@@ -1,0 +1,36 @@
+{
+  "_note": "[ERD-DERIVED] GuestInvitation records keyed by projectId, plus one recipient-side preview for page 17.",
+  "byProject": {
+    "019a4000-0000-7000-8000-000000000001": [
+      {
+        "id": "019a4200-0000-7000-8000-000000000001",
+        "recipientEmail": "grace.liu@larkspur.example",
+        "offeredRoleCode": "BusinessAnalyst",
+        "status": "Pending",
+        "issuedByUserId": "019a2000-0000-7000-8000-000000000003",
+        "lastIssuedAt": "2026-11-11T03:00:00Z",
+        "expiresAt": "2026-11-18T03:00:00Z",
+        "version": 1
+      },
+      {
+        "id": "019a4200-0000-7000-8000-000000000002",
+        "recipientEmail": "tomasz.nowak@larkspur.example",
+        "offeredRoleCode": "Viewer",
+        "status": "Accepted",
+        "issuedByUserId": "019a2000-0000-7000-8000-000000000001",
+        "lastIssuedAt": "2026-09-30T05:00:00Z",
+        "expiresAt": "2026-10-07T05:00:00Z",
+        "version": 2
+      }
+    ],
+    "019a4000-0000-7000-8000-000000000002": []
+  },
+  "recipientPreview": {
+    "invitationId": "019a4200-0000-7000-8000-000000000001",
+    "projectName": "Loyalty platform – Phase 1",
+    "offeredRoleCode": "BusinessAnalyst",
+    "inviterDisplayName": "Linh Pham",
+    "expiresAt": "2026-11-18T03:00:00Z",
+    "version": 1
+  }
+}

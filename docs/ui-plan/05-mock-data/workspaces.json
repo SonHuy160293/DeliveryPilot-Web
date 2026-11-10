@@ -1,0 +1,55 @@
+{
+  "_note": "Workspace memberships and permission codes used by mock repositories to apply the permission matrix (01-requirements.md §6). Real screens keep reading these from the Identity API (D1).",
+  "workspaces": [
+    {
+      "organizationId": "019a1000-0000-7000-8000-000000000001",
+      "name": "Northwind Delivery Studio",
+      "members": [
+        {
+          "userKey": "u-mai",
+          "roles": ["Owner"],
+          "permissionCodes": [
+            "organization.projects.create",
+            "organization.engagements.create",
+            "organization.engagements.read-all",
+            "organization.engagements.manage",
+            "organization.members.read",
+            "organization.audit.read"
+          ]
+        },
+        {
+          "userKey": "u-daniel",
+          "roles": ["Admin"],
+          "permissionCodes": [
+            "organization.projects.create",
+            "organization.engagements.create",
+            "organization.engagements.read-all",
+            "organization.engagements.manage",
+            "organization.members.read"
+          ]
+        },
+        {
+          "userKey": "u-linh",
+          "roles": ["Member", "Delivery lead"],
+          "permissionCodes": [
+            "organization.projects.create",
+            "organization.engagements.create",
+            "organization.engagements.read-all"
+          ]
+        },
+        { "userKey": "u-sofia", "roles": ["Member"], "permissionCodes": [] },
+        { "userKey": "u-arjun", "roles": ["Member"], "permissionCodes": [] },
+        { "userKey": "u-hannah", "roles": ["Member"], "permissionCodes": [] }
+      ]
+    },
+    {
+      "organizationId": "019a1000-0000-7000-8000-000000000002",
+      "name": "Larkspur Retail Group",
+      "_note": "The client's own workspace. Used only by page 10 (client links). Its members gain nothing in Northwind.",
+      "members": [
+        { "userKey": "u-tomasz", "roles": ["Owner"], "permissionCodes": [] },
+        { "userKey": "u-grace", "roles": ["Member"], "permissionCodes": [] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "_note": "Fictional people. Display names come from Identity lookups; emails use the reserved .example domain.",
+  "users": [
+    {
+      "id": "019a2000-0000-7000-8000-000000000001",
+      "key": "u-mai",
+      "displayName": "Mai Tran",
+      "primaryEmail": "mai.tran@northwind.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000002",
+      "key": "u-daniel",
+      "displayName": "Daniel Okafor",
+      "primaryEmail": "daniel.okafor@northwind.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000003",
+      "key": "u-linh",
+      "displayName": "Linh Pham",
+      "primaryEmail": "linh.pham@northwind.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000004",
+      "key": "u-sofia",
+      "displayName": "Sofia Reyes",
+      "primaryEmail": "sofia.reyes@northwind.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000005",
+      "key": "u-arjun",
+      "displayName": "Arjun Mehta",
+      "primaryEmail": "arjun.mehta@northwind.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000006",
+      "key": "u-hannah",
+      "displayName": "Hannah Berg",
+      "primaryEmail": "hannah.berg@northwind.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000007",
+      "key": "u-tomasz",
+      "displayName": "Tomasz Nowak",
+      "primaryEmail": "tomasz.nowak@larkspur.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000008",
+      "key": "u-grace",
+      "displayName": "Grace Liu",
+      "primaryEmail": "grace.liu@larkspur.example"
+    },
+    {
+      "id": "019a2000-0000-7000-8000-000000000009",
+      "key": "u-oskar",
+      "displayName": "Oskar Lind",
+      "primaryEmail": "oskar.lind@northwind.example"
+    }
+  ]
+}

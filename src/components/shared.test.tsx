@@ -48,7 +48,7 @@ describe("shared compositions", () => {
     expect(screen.getByText("Return to workspaces to continue.")).toBeVisible();
   });
 
-  it("defaults to light mode and keeps the sidebar surface styled with bg-muted", () => {
+  it("defaults to light mode and keeps the sidebar surface styled with bg-card", () => {
     authSession.establish(
       {
         userId: "00000000-0000-0000-0000-000000000001",
@@ -61,7 +61,38 @@ describe("shared compositions", () => {
     expect(document.documentElement).not.toHaveClass("dark");
     expect(
       screen.getByRole("complementary", { name: "Workspace sidebar" }),
-    ).toHaveClass("bg-muted");
+    ).toHaveClass("bg-card");
+  });
+
+  it("collapses the sidebar to icons and expands it again", async () => {
+    const user = userEvent.setup();
+    authSession.establish(
+      {
+        userId: "00000000-0000-0000-0000-000000000001",
+        accessToken: "test.header.signature",
+        expiresAt: Date.now() + 60_000,
+      },
+      authSession.begin(),
+    );
+    renderRoute(ROUTES.workspaces);
+    const sidebar = screen.getByRole("complementary", {
+      name: "Workspace sidebar",
+    });
+    expect(sidebar).toHaveClass("w-64");
+    const collapse = screen.getByRole("button", { name: "Collapse sidebar" });
+    expect(collapse).toHaveAttribute("aria-expanded", "true");
+
+    await user.click(collapse);
+    expect(sidebar).toHaveClass("w-16");
+    expect(
+      within(sidebar).getByRole("link", { name: "Workspaces" }),
+    ).toHaveAttribute("title", "Workspaces");
+    const expand = screen.getByRole("button", { name: "Expand sidebar" });
+    expect(expand).toHaveAttribute("aria-expanded", "false");
+    expect(expand).toHaveFocus();
+
+    await user.click(expand);
+    expect(sidebar).toHaveClass("w-64");
   });
 
   it("opens user account menu with person button, toggles details, and closes on Escape", async () => {
@@ -84,11 +115,11 @@ describe("shared compositions", () => {
     expect(dialog).toBeVisible();
 
     const detailsButton = within(dialog).getByRole("button", {
-      name: "Go to information details",
+      name: "My Profile",
     });
     await user.click(detailsButton);
     const detailsRegion = within(dialog).getByRole("region", {
-      name: "Account information details",
+      name: "My Profile details",
     });
     expect(detailsRegion).toBeVisible();
     expect(

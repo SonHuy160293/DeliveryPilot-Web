@@ -1,0 +1,55 @@
+{
+  "_note": "[ERD-DERIVED] Stakeholder records keyed by projectId. email and participantId are never shown to guests.",
+  "byProject": {
+    "019a4000-0000-7000-8000-000000000001": [
+      {
+        "id": "019a4300-0000-7000-8000-000000000001",
+        "name": "Tomasz Nowak",
+        "side": "Client",
+        "organizationName": "Larkspur Retail Group",
+        "responsibilities": "Owns the loyalty programme roadmap and store operations feedback.",
+        "decisionAreas": "Scope priority, UAT acceptance",
+        "email": "tomasz.nowak@larkspur.example",
+        "participantId": "019a4100-0000-7000-8000-000000000004",
+        "retiredAt": null,
+        "version": 2
+      },
+      {
+        "id": "019a4300-0000-7000-8000-000000000002",
+        "name": "Priya Raman",
+        "side": "Client",
+        "organizationName": "Larkspur Retail Group",
+        "responsibilities": "Executive sponsor; approves budget changes.",
+        "decisionAreas": "Budget, launch date",
+        "email": "priya.raman@larkspur.example",
+        "participantId": null,
+        "retiredAt": null,
+        "version": 1
+      },
+      {
+        "id": "019a4300-0000-7000-8000-000000000003",
+        "name": "Mai Tran",
+        "side": "Vendor",
+        "organizationName": "Northwind Delivery Studio",
+        "responsibilities": "Delivery accountability and escalation point.",
+        "decisionAreas": "Staffing, escalation",
+        "email": null,
+        "participantId": "019a4100-0000-7000-8000-000000000001",
+        "retiredAt": null,
+        "version": 1
+      },
+      {
+        "id": "019a4300-0000-7000-8000-000000000004",
+        "name": "Store IT liaison (vacant)",
+        "side": "Client",
+        "organizationName": "Larkspur Retail Group",
+        "responsibilities": "Till network access.",
+        "decisionAreas": null,
+        "email": null,
+        "participantId": null,
+        "retiredAt": "2026-10-15T02:00:00Z",
+        "version": 2
+      }
+    ]
+  }
+}

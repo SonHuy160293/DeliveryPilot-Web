@@ -38,7 +38,7 @@ Fixture records stay in `mocks/workspaces.ts`; test-only API adapters/harnesses 
 
 ## UI infrastructure
 
-The supplied `index.css` is preserved verbatim, including semantic colors, typography, spacing, radius, shadows, focus, and reduced-motion behavior. Public content uses max-w-6xl, app content max-w-7xl, auth max-w-md. Both shells have skip links, focusable main landmarks, and sticky headers. App navigation uses a 16rem desktop sidebar and Radix Sheet on mobile.
+`index.css` carries the owner-approved flat warm-neutral and orange theme from the organization portfolio template (11 November 2026): ink `primary`, orange `brand`/`brand-strong`/`accent`, a 0.75rem radius base, and re-toned callout and avatar tokens. Its semantic token names, spacing, type scale, focus, and reduced-motion behavior are unchanged, and `scripts/check-ui.mjs` pins the new hash. Public content uses max-w-6xl, app content max-w-7xl, auth max-w-md. Both shells have skip links, focusable main landmarks, and sticky headers. App navigation uses a 16rem desktop sidebar and Radix Sheet on mobile.
 
 Eleven shadcn new-york/Radix primitives were generated at bootstrap. Organization integration explicitly approved four additions: Tabs, Checkbox, Select, and Textarea. Their inspected templates use existing Radix dependencies and project tokens. Previously generated files, `components.json`, and the theme source remain frozen. No dependencies, decorative imagery, fonts, or decorative motion were added.
 
@@ -59,6 +59,13 @@ React Hook Form and Zod support sign-in and registration; Zustand and charts rem
 `/workspaces` mounts real discovery and personal Owner nominations. `/w/:workspaceSlug` retains its approved pattern but the segment is a validated organization UUID. Entry waits for a fresh own-membership read; the workspace name comes from paginated current discovery. Local tabs load management panels lazily. Catalog reads, delegable permissions, current role badges, and individual action outcomes remain separate from a complete capability map.
 
 `/join-workspace` is the sole new approved route. Bootstrap scrubs the incoming fragment before constructing BrowserRouter and transfers it into a feature-owned ephemeral flow object, rather than retaining secret-bearing React props. The route can continue through sign-in without workspace admission. Proof-bearing preview/accept/decline calls are imperative, outside Query caches; account changes, abandonment, completion, and unmount retire the proof. StrictMode and successful-login cleanup have explicit regression tests. See [Organization integration](organization-integration.md).
+
+## Approved UI plan decisions (11 November 2026)
+
+The owner approved backlog tasks T0-01 and T0-02 of [docs/ui-plan](../ui-plan/README.md):
+
+- **Routes (T0-01).** Approved for addition to `lib/routes.ts`: `workspaceEngagements` `/w/:workspaceSlug/engagements`, `workspaceEngagement` `/w/:workspaceSlug/engagements/:engagementId`, `workspaceProjects` `/w/:workspaceSlug/projects`, `workspaceProject` `/w/:workspaceSlug/projects/:projectId`, `joinProject` `/join-project`, `portal` `/portal`, `portalProject` `/portal/projects/:projectId`; workspace sections `client-links` and `projects-recovery`; project tabs by `?tab=`. The Client Portal is part of this SPA under a `PortalLayout`. ID segments are UUID-validated before any request. The constants are added by task T0-03; until then they are not in `routes.ts`.
+- **Mock layer (T0-02).** Engagements, Projects, Sharing and Portal have no Gateway API yet. Their pages use repository interfaces in `features/<feature>/api` with mock implementations backed by `mocks/engagements.ts`, `mocks/projects.ts` and `mocks/portal.ts`. Components use only `queries.ts`. Mock-backed pages show `MockDataBanner` and never present writes as saved to a server. `sharing` and `portal` may import **types only** from `features/projects/api/types.ts`. Each mock repository is swapped for an HTTP repository, and its banner removed, once the endpoint and DTO are verified.
 
 ## Product boundaries
 

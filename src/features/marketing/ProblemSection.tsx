@@ -75,10 +75,6 @@ export function ProblemSection() {
               One question. A connected record.
             </p>
           </div>
-          <p className="text-sm leading-relaxed">
-            The intended approach, illustrated here. Connected delivery
-            workflows are still to come.
-          </p>
         </div>
       </div>
     </section>

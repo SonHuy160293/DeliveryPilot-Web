@@ -58,7 +58,7 @@ function Picker({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="min-w-0 max-w-full">
+        <Button variant="outline" className="min-w-0 max-w-full md:max-w-xs">
           <span className="truncate">
             {current?.name ??
               (workspaceSlug ? "Choose workspace" : "Workspaces")}
@@ -74,7 +74,7 @@ function Picker({
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col gap-2">
-          <Label htmlFor="switcher-filter">Filter loaded workspaces</Label>
+          <Label htmlFor="switcher-filter">Search workspaces</Label>
           <Input
             id="switcher-filter"
             value={filter}
@@ -107,7 +107,7 @@ function Picker({
               ))}
             </ul>
           ) : (
-            <p>No matching loaded workspaces.</p>
+            <p>No matching workspaces.</p>
           )}
           <LoadMore
             more={query.hasNextPage}

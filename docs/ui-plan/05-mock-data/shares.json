@@ -1,0 +1,120 @@
+{
+  "_note": "[ERD-DERIVED] GuestShare rows and ShareEvent history for project 019a4000-…-0001.",
+  "shares": [
+    {
+      "id": "019a4400-0000-7000-8000-000000000001",
+      "itemType": "BriefItem",
+      "briefItemCode": "Problem",
+      "stakeholderId": null,
+      "engagementId": null,
+      "status": "Shared",
+      "sharedAt": "2026-11-04T03:10:00Z",
+      "sharedByUserId": "019a2000-0000-7000-8000-000000000003",
+      "withdrawnAt": null,
+      "version": 1
+    },
+    {
+      "id": "019a4400-0000-7000-8000-000000000002",
+      "itemType": "BriefItem",
+      "briefItemCode": "ScopeAndExclusions",
+      "stakeholderId": null,
+      "engagementId": null,
+      "status": "Shared",
+      "sharedAt": "2026-11-04T03:11:00Z",
+      "sharedByUserId": "019a2000-0000-7000-8000-000000000003",
+      "withdrawnAt": null,
+      "version": 1
+    },
+    {
+      "id": "019a4400-0000-7000-8000-000000000003",
+      "itemType": "Stakeholder",
+      "briefItemCode": null,
+      "stakeholderId": "019a4300-0000-7000-8000-000000000001",
+      "engagementId": null,
+      "status": "Shared",
+      "sharedAt": "2026-11-04T03:12:00Z",
+      "sharedByUserId": "019a2000-0000-7000-8000-000000000003",
+      "withdrawnAt": null,
+      "version": 1
+    },
+    {
+      "id": "019a4400-0000-7000-8000-000000000004",
+      "itemType": "EngagementSummary",
+      "briefItemCode": null,
+      "stakeholderId": null,
+      "engagementId": "019a3000-0000-7000-8000-000000000001",
+      "status": "Shared",
+      "sharedAt": "2026-11-05T01:00:00Z",
+      "sharedByUserId": "019a2000-0000-7000-8000-000000000001",
+      "withdrawnAt": null,
+      "version": 1
+    },
+    {
+      "id": "019a4400-0000-7000-8000-000000000005",
+      "itemType": "BriefItem",
+      "briefItemCode": "ConstraintsAndDependencies",
+      "stakeholderId": null,
+      "engagementId": null,
+      "status": "Withdrawn",
+      "sharedAt": "2026-11-04T03:13:00Z",
+      "sharedByUserId": "019a2000-0000-7000-8000-000000000003",
+      "withdrawnAt": "2026-11-06T02:00:00Z",
+      "version": 2
+    }
+  ],
+  "history": {
+    "items": [
+      {
+        "id": "019a4500-0000-7000-8000-000000000105",
+        "action": "Withdrawn",
+        "itemType": "BriefItem",
+        "itemLabel": "Constraints and dependencies",
+        "actorUserId": "019a2000-0000-7000-8000-000000000003",
+        "actorDisplayName": "Linh Pham",
+        "occurredAt": "2026-11-06T02:00:00Z",
+        "reason": "Mentions an internal staffing constraint."
+      },
+      {
+        "id": "019a4500-0000-7000-8000-000000000104",
+        "action": "Shared",
+        "itemType": "EngagementSummary",
+        "itemLabel": "Engagement summary",
+        "actorUserId": "019a2000-0000-7000-8000-000000000001",
+        "actorDisplayName": "Mai Tran",
+        "occurredAt": "2026-11-05T01:00:00Z",
+        "reason": null
+      },
+      {
+        "id": "019a4500-0000-7000-8000-000000000103",
+        "action": "Shared",
+        "itemType": "Stakeholder",
+        "itemLabel": "Tomasz Nowak",
+        "actorUserId": "019a2000-0000-7000-8000-000000000003",
+        "actorDisplayName": "Linh Pham",
+        "occurredAt": "2026-11-04T03:12:00Z",
+        "reason": null
+      },
+      {
+        "id": "019a4500-0000-7000-8000-000000000102",
+        "action": "Shared",
+        "itemType": "BriefItem",
+        "itemLabel": "Scope and exclusions",
+        "actorUserId": "019a2000-0000-7000-8000-000000000003",
+        "actorDisplayName": "Linh Pham",
+        "occurredAt": "2026-11-04T03:11:00Z",
+        "reason": null
+      },
+      {
+        "id": "019a4500-0000-7000-8000-000000000101",
+        "action": "Shared",
+        "itemType": "BriefItem",
+        "itemLabel": "Problem",
+        "actorUserId": "019a2000-0000-7000-8000-000000000003",
+        "actorDisplayName": "Linh Pham",
+        "occurredAt": "2026-11-04T03:10:00Z",
+        "reason": null
+      }
+    ],
+    "nextCursor": null
+  }
+}

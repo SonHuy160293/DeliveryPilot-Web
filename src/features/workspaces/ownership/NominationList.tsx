@@ -3,7 +3,10 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { discoveryOptions } from "@/features/workspaces/api/queries";
 import type { Member, Nomination } from "@/features/workspaces/api/contracts";
 import type { SessionOwner } from "@/features/workspaces/api/request";
-import { formatInstant } from "@/features/workspaces/model/formatters";
+import {
+  formatInstant,
+  formatStatus,
+} from "@/features/workspaces/model/formatters";
 import { NominationActions } from "@/features/workspaces/ownership/NominationActions";
 
 export function NominationList({
@@ -34,7 +37,7 @@ export function NominationList({
                 (workspace) => workspace.organizationId === item.organizationId,
               )?.name ?? "Workspace nomination"}
             </h3>
-            <Badge variant="secondary">{item.status}</Badge>
+            <Badge variant="secondary">{formatStatus(item.status)}</Badge>
           </div>
           {management &&
           members.find(
@@ -56,14 +59,16 @@ export function NominationList({
             </p>
           ) : null}
           <details>
-            <summary className="cursor-pointer text-sm">Identifiers</summary>
+            <summary className="cursor-pointer text-sm">
+              Technical details
+            </summary>
             <p className="break-all text-sm">
               Workspace ID: {item.organizationId} · Nominee membership ID:{" "}
               {item.membershipId}
             </p>
           </details>
           <p className="text-sm">
-            Created {formatInstant(item.createdAt)} · Deadline{" "}
+            Created {formatInstant(item.createdAt)} · Respond by{" "}
             {formatInstant(item.expiresAt)}
           </p>
           <NominationActions

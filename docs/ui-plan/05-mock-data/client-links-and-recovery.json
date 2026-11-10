@@ -1,0 +1,39 @@
+{
+  "_note": "Page 10 (client workspace Larkspur Retail Group) and page 16 (Owner recovery in Northwind). Fictional.",
+  "clientLinks": {
+    "clientWorkspaceId": "019a1000-0000-7000-8000-000000000002",
+    "linked": [
+      {
+        "engagementId": "019a3000-0000-7000-8000-000000000001",
+        "engagementName": "Loyalty platform rebuild",
+        "clientDisplayName": "Larkspur Retail Group",
+        "linkedAt": "2026-09-20T02:40:00Z",
+        "version": 7
+      }
+    ],
+    "validCodeForMock": "7KQ4-MZ2P-H9TD",
+    "previewForValidCode": {
+      "engagementName": "Fleet telemetry MVP",
+      "clientDisplayName": "Halden Logistics"
+    }
+  },
+  "orphanedProjects": [
+    {
+      "id": "019a4000-0000-7000-8000-000000000004",
+      "name": "Warehouse scanner app",
+      "status": "Active",
+      "candidates": [
+        {
+          "participantId": "019a4100-0000-7000-8000-000000000021",
+          "displayName": "Arjun Mehta",
+          "roles": ["Developer"]
+        },
+        {
+          "participantId": "019a4100-0000-7000-8000-000000000022",
+          "displayName": "Hannah Berg",
+          "roles": ["QualityAssurance"]
+        }
+      ]
+    }
+  ]
+}

@@ -54,7 +54,10 @@ export function PageHeader({
       ) : null}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0 space-y-2">
-          <h1 className="break-words text-2xl font-semibold tracking-tight md:text-3xl">
+          <h1
+            title={title}
+            className="line-clamp-2 break-words text-2xl font-semibold tracking-tight md:text-3xl"
+          >
             {title}
           </h1>
           {description ? (

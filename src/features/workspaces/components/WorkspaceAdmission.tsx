@@ -97,10 +97,6 @@ export function WorkspaceAdmission({ scope }: { scope: ScopedOwner }) {
       <PageHeader
         title={name}
         description="Manage your workspace. Each read and action checks current access."
-        breadcrumbs={[
-          { label: "Workspaces", to: ROUTES.workspaces },
-          { label: name },
-        ]}
       />
       <WorkspacePanels scope={scope} me={me.data} />
       {discovery.error ? (

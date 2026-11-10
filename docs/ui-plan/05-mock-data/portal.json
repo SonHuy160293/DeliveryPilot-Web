@@ -1,0 +1,129 @@
+{
+  "_note": "[ERD-DERIVED] Portal views for guest Tomasz Nowak. Built only from active guest participations and current shares. No vendor workspace name, emails, money, effort, contacts, milestone reasons or waiver reason.",
+  "myGuestProjects": [
+    {
+      "projectId": "019a4000-0000-7000-8000-000000000001",
+      "name": "Loyalty platform – Phase 1",
+      "status": "Active",
+      "myRoles": ["Viewer"],
+      "isClientProductOwner": true,
+      "admittedAt": "2026-10-02T05:40:00Z"
+    }
+  ],
+  "projectViews": {
+    "019a4000-0000-7000-8000-000000000001": {
+      "projectId": "019a4000-0000-7000-8000-000000000001",
+      "name": "Loyalty platform – Phase 1",
+      "purpose": "Replace the legacy points engine and launch the new member app for Larkspur stores.",
+      "status": "Active",
+      "sprintLengthWeeks": 2,
+      "productGoal": "Members can earn and redeem points in-store and in the app with one balance, without staff assistance.",
+      "myRoles": ["Viewer"],
+      "clientProductOwnerName": "Tomasz Nowak",
+      "team": [
+        {
+          "displayName": "Mai Tran",
+          "roles": ["ProjectAdministrator"],
+          "isGuest": false,
+          "isClientProductOwner": false
+        },
+        {
+          "displayName": "Linh Pham",
+          "roles": ["ProjectManager", "BusinessAnalyst"],
+          "isGuest": false,
+          "isClientProductOwner": false
+        },
+        {
+          "displayName": "Sofia Reyes",
+          "roles": ["BusinessAnalyst"],
+          "isGuest": false,
+          "isClientProductOwner": false
+        },
+        {
+          "displayName": "Arjun Mehta",
+          "roles": ["Developer"],
+          "isGuest": false,
+          "isClientProductOwner": false
+        },
+        {
+          "displayName": "Hannah Berg",
+          "roles": ["QualityAssurance"],
+          "isGuest": false,
+          "isClientProductOwner": false
+        },
+        {
+          "displayName": "Tomasz Nowak",
+          "roles": ["Viewer"],
+          "isGuest": true,
+          "isClientProductOwner": true
+        }
+      ],
+      "sharedBriefItems": [
+        {
+          "code": "Problem",
+          "value": "Store staff cannot see a member's points balance at checkout, and the 2014 points engine fails during weekend peaks.",
+          "sharedAt": "2026-11-04T03:10:00Z"
+        },
+        {
+          "code": "ScopeAndExclusions",
+          "value": "In scope: member app (iOS, Android), new points engine, till integration for 48 stores. Out of scope: partner rewards, e-commerce site.",
+          "sharedAt": "2026-11-04T03:11:00Z"
+        }
+      ],
+      "sharedStakeholders": [
+        {
+          "id": "019a4300-0000-7000-8000-000000000001",
+          "name": "Tomasz Nowak",
+          "side": "Client",
+          "organizationName": "Larkspur Retail Group",
+          "responsibilities": "Owns the loyalty programme roadmap and store operations feedback.",
+          "decisionAreas": "Scope priority, UAT acceptance",
+          "sharedAt": "2026-11-04T03:12:00Z"
+        }
+      ],
+      "sharedEngagementSummary": {
+        "engagementId": "019a3000-0000-7000-8000-000000000001",
+        "clientDisplayName": "Larkspur Retail Group",
+        "engagementName": "Loyalty platform rebuild",
+        "agreementReference": "LRG-2026-014",
+        "status": "Active",
+        "milestones": [
+          {
+            "id": "019a3100-0000-7000-8000-000000000001",
+            "name": "Discovery sign-off",
+            "description": "Client approves scope and release plan for Phase 1.",
+            "originalTargetDate": "2026-10-10",
+            "currentTargetDate": "2026-10-10",
+            "status": "Achieved"
+          },
+          {
+            "id": "019a3100-0000-7000-8000-000000000002",
+            "name": "Member app beta",
+            "description": "Beta build distributed to 200 staff testers.",
+            "originalTargetDate": "2026-12-15",
+            "currentTargetDate": "2027-01-12",
+            "status": "Planned"
+          },
+          {
+            "id": "019a3100-0000-7000-8000-000000000003",
+            "name": "Points engine cut-over",
+            "description": null,
+            "originalTargetDate": "2027-02-20",
+            "currentTargetDate": "2027-02-20",
+            "status": "Planned"
+          },
+          {
+            "id": "019a3100-0000-7000-8000-000000000004",
+            "name": "Public launch",
+            "description": "All 48 stores live.",
+            "originalTargetDate": "2027-03-31",
+            "currentTargetDate": "2027-03-31",
+            "status": "Planned"
+          }
+        ],
+        "sharedAt": "2026-11-05T01:00:00Z"
+      },
+      "roleAccess": { "editBrief": false, "editStakeholders": false }
+    }
+  }
+}

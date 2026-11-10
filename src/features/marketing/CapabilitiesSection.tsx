@@ -22,14 +22,16 @@ export function CapabilitiesSection() {
           </h2>
           <p className="max-w-lg text-base leading-relaxed text-muted-foreground">
             A product direction built around four connections that matter when
-            you’re accountable for delivery. These workflows are planned, not
-            connected in this preview.
+            you’re accountable for delivery.
           </p>
         </div>
-        <article className="grid gap-8 rounded-xl bg-accent p-6 text-accent-foreground md:grid-cols-2 md:p-8">
+        <article className="grid gap-8 rounded-xl bg-accent p-6 text-foreground md:grid-cols-2 md:p-8">
           <div className="flex flex-col items-start gap-4">
-            <FileCheck2 aria-hidden="true" className="size-6" />
-            <h3 className="max-w-sm text-2xl font-semibold leading-tight tracking-tight">
+            <FileCheck2
+              aria-hidden="true"
+              className="size-6 text-brand-strong"
+            />
+            <h3 className="max-w-sm text-2xl font-semibold leading-tight tracking-tight text-brand-strong">
               Keep the agreed version in view.
             </h3>
             <p className="text-base leading-relaxed">
@@ -75,7 +77,10 @@ export function CapabilitiesSection() {
         </article>
         <div className="grid gap-8 md:grid-cols-2">
           <article className="flex flex-col items-start gap-4 border-t border-border pt-6">
-            <GitBranch aria-hidden="true" className="size-6 text-primary" />
+            <GitBranch
+              aria-hidden="true"
+              className="size-6 text-brand-strong"
+            />
             <h3 className="text-xl font-semibold tracking-tight">
               Give delivery work its context.
             </h3>
@@ -89,7 +94,7 @@ export function CapabilitiesSection() {
             </p>
           </article>
           <article className="flex flex-col items-start gap-4 border-t border-border pt-6">
-            <Unplug aria-hidden="true" className="size-6 text-primary" />
+            <Unplug aria-hidden="true" className="size-6 text-brand-strong" />
             <h3 className="text-xl font-semibold tracking-tight">
               Make the obstacle explicit.
             </h3>
@@ -105,7 +110,10 @@ export function CapabilitiesSection() {
         </div>
         <article className="grid gap-6 border-t border-border pt-8 md:grid-cols-2">
           <div className="flex flex-col items-start gap-4">
-            <Waypoints aria-hidden="true" className="size-6 text-primary" />
+            <Waypoints
+              aria-hidden="true"
+              className="size-6 text-brand-strong"
+            />
             <h3 className="text-xl font-semibold tracking-tight">
               Ask what the evidence shows.
             </h3>

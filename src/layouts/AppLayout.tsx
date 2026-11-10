@@ -1,25 +1,54 @@
-import { useLayoutEffect, type ReactNode } from "react";
-import { Building2, Send } from "lucide-react";
-import { Link, NavLink, Outlet } from "react-router";
-import { Separator } from "@/components/ui/separator";
+import { useLayoutEffect, useState, type ReactNode } from "react";
+import { Menu, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { Link, Outlet } from "react-router";
 import { UserAccountMenu } from "@/components/UserAccountMenu";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  APP_SIDEBAR_ID,
+  AppSidebar,
+  SidebarContent,
+} from "@/layouts/AppSidebar";
+import { BrandMark, BrandWord } from "@/layouts/Brand";
 import { ROUTES } from "@/lib/routes";
 import { initializeTheme } from "@/lib/theme";
 
-function WorkspaceNavigation() {
+function MobileNavigation() {
+  const [open, setOpen] = useState(false);
   return (
-    <nav aria-label="Workspace navigation">
-      <NavLink
-        to={ROUTES.workspaces}
-        end
-        className={({ isActive }) =>
-          `flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-medium transition-colors duration-150 ease-out ${isActive ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"}`
-        }
-      >
-        <Building2 aria-hidden="true" className="size-4 shrink-0" />
-        <span>Workspaces</span>
-      </NavLink>
-    </nav>
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          aria-label="Open navigation"
+          className="size-10 shrink-0 md:hidden"
+        >
+          <Menu aria-hidden="true" className="size-5" />
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left" className="w-72 gap-0 p-4">
+        <SheetHeader className="sr-only">
+          <SheetTitle>Navigation</SheetTitle>
+          <SheetDescription>
+            Move between workspaces and sections.
+          </SheetDescription>
+        </SheetHeader>
+        <SidebarContent
+          onNavigate={() => {
+            setOpen(false);
+          }}
+        />
+      </SheetContent>
+    </Sheet>
   );
 }
 
@@ -29,11 +58,11 @@ export function AppLayout({
 }: {
   workspaceControl?: ReactNode;
   breadcrumbs?: ReactNode;
-  accountControl?: ReactNode;
-  menuOpen?: boolean;
-  onMenuOpenChange?: (open: boolean) => void;
 }) {
   useLayoutEffect(initializeTheme, []);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const SidebarIcon = sidebarCollapsed ? PanelLeftOpen : PanelLeftClose;
+  const toggleLabel = sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar";
 
   return (
     <div className="min-h-svh bg-background text-foreground">
@@ -44,60 +73,41 @@ export function AppLayout({
         Skip to content
       </a>
       <div className="flex min-h-svh">
-        <aside
-          aria-label="Workspace sidebar"
-          className="hidden w-64 shrink-0 border-r border-border bg-muted px-4 py-6 text-foreground md:block"
-        >
-          <div className="flex flex-col gap-3">
-            <Link
-              to={ROUTES.workspaces}
-              className="flex min-h-11 items-center gap-3 rounded-lg focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <span
-                aria-hidden="true"
-                className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm"
-              >
-                <Send className="size-6" />
-              </span>
-              <span className="flex flex-col">
-                <span className="text-xl font-bold tracking-tight">
-                  <span className="text-foreground">Delivery</span>
-                  <span className="text-primary">Pilot</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="text-xs font-semibold tracking-wider text-callout-foreground uppercase"
-                >
-                  Delivery platform
-                </span>
-              </span>
-            </Link>
-          </div>
-          <Separator className="my-6" />
-          <WorkspaceNavigation />
-        </aside>
+        <AppSidebar collapsed={sidebarCollapsed} />
         <div className="flex min-w-0 flex-1 flex-col">
-          <header className="sticky top-0 z-20 border-b border-border bg-background">
-            <div className="flex min-h-16 items-center justify-between gap-3 px-4 md:px-6">
-              <Link
-                to={ROUTES.workspaces}
-                className="flex min-w-0 items-center gap-3 text-lg font-bold tracking-tight md:hidden"
-              >
-                <span
-                  aria-hidden="true"
-                  className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm"
+          <header className="sticky top-0 z-20 border-b border-border bg-card">
+            <div className="flex min-h-16 items-center justify-between gap-3 px-4 md:px-8">
+              <div className="flex min-w-0 items-center gap-2 md:hidden">
+                <MobileNavigation />
+                <Link
+                  to={ROUTES.workspaces}
+                  className="flex min-w-0 items-center gap-3 text-lg"
                 >
-                  <Send className="size-4" />
-                </span>
-                <span>
-                  <span className="text-foreground">Delivery</span>
-                  <span className="text-primary">Pilot</span>
-                </span>
-              </Link>
-              <div className="hidden min-w-0 md:block">
-                {breadcrumbs ?? (
-                  <span className="text-sm font-medium">Workspaces</span>
-                )}
+                  <BrandMark compact />
+                  <span className="hidden sm:inline">
+                    <BrandWord />
+                  </span>
+                </Link>
+              </div>
+              <div className="hidden min-w-0 items-center gap-3 md:flex">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  aria-controls={APP_SIDEBAR_ID}
+                  aria-expanded={!sidebarCollapsed}
+                  aria-label={toggleLabel}
+                  title={toggleLabel}
+                  className="size-10 shrink-0 text-muted-foreground hover:text-foreground"
+                  onClick={() => {
+                    setSidebarCollapsed((prev) => !prev);
+                  }}
+                >
+                  <SidebarIcon aria-hidden="true" className="size-5" />
+                </Button>
+                <div className="min-w-0 text-sm font-medium">
+                  {breadcrumbs ?? <span>Workspaces</span>}
+                </div>
               </div>
               <div className="flex min-w-0 items-center gap-3">
                 <div className="min-w-0">{workspaceControl}</div>
@@ -108,7 +118,7 @@ export function AppLayout({
           <main
             id="main-content"
             tabIndex={-1}
-            className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 md:px-6 md:py-8"
+            className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 md:px-8 md:py-12"
           >
             <Outlet />
           </main>

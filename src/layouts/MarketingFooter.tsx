@@ -16,7 +16,7 @@ export function MarketingFooter() {
             to={ROUTES.workspaces}
             className="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground hover:text-foreground"
           >
-            Explore the preview
+            Open the app
           </Link>
           <Link
             to={ROUTES.signIn}

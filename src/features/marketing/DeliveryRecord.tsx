@@ -64,7 +64,7 @@ export function DeliveryRecord() {
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Agreed scope and the version behind the commitment.
               </p>
-              <p className="flex items-center gap-2 text-sm font-medium text-primary">
+              <p className="flex items-center gap-2 text-sm font-medium text-brand-strong">
                 <Link2 aria-hidden="true" className="size-4 shrink-0" /> Linked
                 to delivery work
               </p>

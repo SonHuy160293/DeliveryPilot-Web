@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/select";
 import { lifecycle } from "@/features/workspaces/api/contracts";
 import type { OfferStatus } from "@/features/workspaces/api/queries";
+import { formatStatus } from "@/features/workspaces/model/formatters";
 
 export function StatusFilter({
   id,
@@ -36,7 +37,7 @@ export function StatusFilter({
           <SelectGroup>
             {lifecycle.options.map((status) => (
               <SelectItem key={status} value={status}>
-                {status}
+                {formatStatus(status)}
               </SelectItem>
             ))}
           </SelectGroup>

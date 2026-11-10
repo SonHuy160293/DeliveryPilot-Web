@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -46,27 +45,14 @@ export function AuthPage({ mode, resolveContinuation }: AuthPageProps) {
           ) : (
             <AuthForm />
           )}
-          <div className="space-y-2">
-            <Button
-              type="button"
-              variant="outline"
-              className="min-h-11 w-full"
-              disabled
-            >
-              Continue with SSO
-            </Button>
+          {signingIn ? (
             <p className="text-sm text-muted-foreground">
-              SSO is not configured.
+              Invited to a workspace? Register, sign in, then reopen your
+              invitation email.
             </p>
-          </div>
+          ) : null}
           <p className="text-sm">
             {signingIn ? "Need an account? " : "Already have an account? "}
-            {!signingIn ? null : (
-              <span className="mb-2 block text-muted-foreground">
-                Invited and need an account? Register, sign in, then reopen your
-                invitation email.
-              </span>
-            )}
             <Link
               to={signingIn ? ROUTES.signUp : ROUTES.signIn}
               className="inline-flex min-h-6 items-center font-medium text-primary underline underline-offset-4"

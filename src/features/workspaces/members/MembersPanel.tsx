@@ -23,6 +23,7 @@ import {
 import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
 import { MemberDetail } from "@/features/workspaces/members/MemberDetail";
 import { RoleBadges } from "@/features/workspaces/components/RoleBadges";
+import { formatStatus } from "@/features/workspaces/model/formatters";
 
 export default function MembersPanel({ scope }: { scope: ScopedOwner }) {
   const [status, setStatus] = useState<"active" | "removed" | "suspended">(
@@ -59,7 +60,7 @@ export default function MembersPanel({ scope }: { scope: ScopedOwner }) {
             <SelectGroup>
               {memberStatus.options.map((item) => (
                 <SelectItem key={item} value={item}>
-                  {item}
+                  {formatStatus(item)}
                 </SelectItem>
               ))}
             </SelectGroup>
@@ -110,7 +111,7 @@ export default function MembersPanel({ scope }: { scope: ScopedOwner }) {
                   <div className="flex min-w-0 flex-col gap-2">
                     <span className="break-words">{member.displayName}</span>
                     <span className="break-all text-sm text-muted-foreground">
-                      {member.primaryEmail} · {member.status}
+                      {member.primaryEmail} · {formatStatus(member.status)}
                     </span>
                     <RoleBadges roles={member.roles} />
                   </div>

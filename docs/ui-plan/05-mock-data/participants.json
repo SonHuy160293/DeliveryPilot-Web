@@ -1,0 +1,126 @@
+{
+  "_note": "[ERD-DERIVED] Participant records keyed by projectId. primaryEmail is shown on vendor pages only.",
+  "byProject": {
+    "019a4000-0000-7000-8000-000000000001": [
+      {
+        "id": "019a4100-0000-7000-8000-000000000001",
+        "userId": "019a2000-0000-7000-8000-000000000001",
+        "displayName": "Mai Tran",
+        "primaryEmail": "mai.tran@northwind.example",
+        "kind": "Member",
+        "status": "Active",
+        "roles": ["ProjectAdministrator"],
+        "firstJoinedAt": "2026-09-20T03:15:00Z",
+        "activeSince": "2026-09-20T03:15:00Z",
+        "isClientProductOwner": false,
+        "version": 1
+      },
+      {
+        "id": "019a4100-0000-7000-8000-000000000002",
+        "userId": "019a2000-0000-7000-8000-000000000003",
+        "displayName": "Linh Pham",
+        "primaryEmail": "linh.pham@northwind.example",
+        "kind": "Member",
+        "status": "Active",
+        "roles": ["ProjectManager", "BusinessAnalyst"],
+        "firstJoinedAt": "2026-09-20T03:20:00Z",
+        "activeSince": "2026-09-20T03:20:00Z",
+        "isClientProductOwner": false,
+        "version": 2
+      },
+      {
+        "id": "019a4100-0000-7000-8000-000000000003",
+        "userId": "019a2000-0000-7000-8000-000000000004",
+        "displayName": "Sofia Reyes",
+        "primaryEmail": "sofia.reyes@northwind.example",
+        "kind": "Member",
+        "status": "Active",
+        "roles": ["BusinessAnalyst"],
+        "firstJoinedAt": "2026-09-21T01:00:00Z",
+        "activeSince": "2026-09-21T01:00:00Z",
+        "isClientProductOwner": false,
+        "version": 1
+      },
+      {
+        "id": "019a4100-0000-7000-8000-000000000005",
+        "userId": "019a2000-0000-7000-8000-000000000005",
+        "displayName": "Arjun Mehta",
+        "primaryEmail": "arjun.mehta@northwind.example",
+        "kind": "Member",
+        "status": "Active",
+        "roles": ["Developer"],
+        "firstJoinedAt": "2026-09-22T01:00:00Z",
+        "activeSince": "2026-09-22T01:00:00Z",
+        "isClientProductOwner": false,
+        "version": 1
+      },
+      {
+        "id": "019a4100-0000-7000-8000-000000000006",
+        "userId": "019a2000-0000-7000-8000-000000000006",
+        "displayName": "Hannah Berg",
+        "primaryEmail": "hannah.berg@northwind.example",
+        "kind": "Member",
+        "status": "Active",
+        "roles": ["QualityAssurance"],
+        "firstJoinedAt": "2026-09-22T01:05:00Z",
+        "activeSince": "2026-09-22T01:05:00Z",
+        "isClientProductOwner": false,
+        "version": 1
+      },
+      {
+        "id": "019a4100-0000-7000-8000-000000000004",
+        "userId": "019a2000-0000-7000-8000-000000000007",
+        "displayName": "Tomasz Nowak",
+        "primaryEmail": "tomasz.nowak@larkspur.example",
+        "kind": "Guest",
+        "status": "Active",
+        "roles": ["Viewer"],
+        "firstJoinedAt": "2026-10-02T05:40:00Z",
+        "activeSince": "2026-10-02T05:40:00Z",
+        "isClientProductOwner": true,
+        "version": 1
+      },
+      {
+        "id": "019a4100-0000-7000-8000-000000000007",
+        "userId": "019a2000-0000-7000-8000-000000000009",
+        "displayName": "Oskar Lind",
+        "primaryEmail": "oskar.lind@northwind.example",
+        "kind": "Member",
+        "status": "Removed",
+        "roles": [],
+        "firstJoinedAt": "2026-09-22T01:10:00Z",
+        "activeSince": "2026-09-22T01:10:00Z",
+        "isClientProductOwner": false,
+        "version": 3
+      }
+    ],
+    "019a4000-0000-7000-8000-000000000002": [
+      {
+        "id": "019a4100-0000-7000-8000-000000000011",
+        "userId": "019a2000-0000-7000-8000-000000000003",
+        "displayName": "Linh Pham",
+        "primaryEmail": "linh.pham@northwind.example",
+        "kind": "Member",
+        "status": "Active",
+        "roles": ["ProjectAdministrator"],
+        "firstJoinedAt": "2026-11-05T02:00:00Z",
+        "activeSince": "2026-11-05T02:00:00Z",
+        "isClientProductOwner": false,
+        "version": 1
+      },
+      {
+        "id": "019a4100-0000-7000-8000-000000000012",
+        "userId": "019a2000-0000-7000-8000-000000000005",
+        "displayName": "Arjun Mehta",
+        "primaryEmail": "arjun.mehta@northwind.example",
+        "kind": "Member",
+        "status": "Active",
+        "roles": ["Developer"],
+        "firstJoinedAt": "2026-11-05T02:10:00Z",
+        "activeSince": "2026-11-05T02:10:00Z",
+        "isClientProductOwner": false,
+        "version": 1
+      }
+    ]
+  }
+}

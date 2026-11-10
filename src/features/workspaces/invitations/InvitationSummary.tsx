@@ -4,6 +4,7 @@ import type { Invitation } from "@/features/workspaces/api/contracts";
 import {
   formatInstant,
   formatNumber,
+  formatStatus,
 } from "@/features/workspaces/model/formatters";
 
 export function InvitationSummary({ invitation }: { invitation: Invitation }) {
@@ -14,7 +15,9 @@ export function InvitationSummary({ invitation }: { invitation: Invitation }) {
         {invitation.recipientEmail}
       </h3>
       <p className="flex flex-wrap gap-2">
-        <Badge variant="secondary">Offer: {invitation.status}</Badge>
+        <Badge variant="secondary">
+          Offer: {formatStatus(invitation.status)}
+        </Badge>
         <Badge variant="outline">
           Delivery:{" "}
           {invitation.delivery.status === "provider-accepted"

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Info, LogOut, User } from "lucide-react";
+import { LogOut, User, UserRound } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,9 @@ import { authSession } from "@/lib/api/authSession";
 import { useAuthSession } from "@/features/auth/model/useAuthSession";
 import { clearSessionCache } from "@/lib/query/queryScope";
 import { ROUTES } from "@/lib/routes";
+
+const MENU_ITEM_CLASS =
+  "min-h-11 w-full justify-start gap-2 text-sm font-medium";
 
 export function UserAccountMenu() {
   const [open, setOpen] = useState(false);
@@ -61,7 +64,7 @@ export function UserAccountMenu() {
         aria-label="User account"
         aria-haspopup="dialog"
         aria-expanded={open}
-        className="size-10 rounded-full border-border bg-card text-foreground transition-colors duration-150 ease-out hover:bg-accent hover:text-accent-foreground"
+        className="size-10 rounded-full border-transparent bg-avatar-4 text-avatar-4-foreground shadow-none transition-colors duration-150 ease-out hover:bg-avatar-4 hover:text-foreground"
         onClick={() => {
           setOpen((prev) => !prev);
         }}
@@ -79,17 +82,17 @@ export function UserAccountMenu() {
             <div className="flex items-center gap-3 border-b border-border pb-3">
               <span
                 aria-hidden="true"
-                className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground"
+                className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"
               >
                 <User className="size-5" />
               </span>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold text-foreground">
-                  User Account
+                  Your account
                 </p>
                 <p className="truncate text-xs text-muted-foreground">
                   {session.status === "authenticated"
-                    ? session.userId
+                    ? "Signed in on this device"
                     : "Not signed in"}
                 </p>
               </div>
@@ -98,51 +101,51 @@ export function UserAccountMenu() {
             <Button
               type="button"
               variant="ghost"
-              className="min-h-11 justify-start gap-2 text-sm font-medium"
+              className={MENU_ITEM_CLASS}
+              aria-expanded={showDetails}
               onClick={() => {
                 setShowDetails((prev) => !prev);
               }}
             >
-              <Info
+              <UserRound
                 aria-hidden="true"
                 className="size-4 text-muted-foreground"
               />
-              <span>
-                {showDetails
-                  ? "Hide information details"
-                  : "Go to information details"}
-              </span>
+              <span>My Profile</span>
             </Button>
 
             {showDetails ? (
               <div
                 role="region"
-                aria-label="Account information details"
-                className="flex flex-col gap-1.5 rounded-lg border border-border bg-muted p-3 text-xs"
+                aria-label="My Profile details"
+                className="flex flex-col gap-2 rounded-lg border border-border bg-muted p-3 text-xs"
               >
-                <p className="font-semibold text-foreground">
-                  Information details
-                </p>
+                <p className="font-semibold text-foreground">My Profile</p>
                 <p className="break-all text-muted-foreground">
                   <span className="font-medium text-foreground">User ID: </span>
                   {session.status === "authenticated" ? session.userId : "N/A"}
                 </p>
                 <p className="text-muted-foreground">
                   <span className="font-medium text-foreground">Status: </span>
-                  {session.status}
+                  {session.status === "authenticated"
+                    ? "Signed in"
+                    : "Not signed in"}
                 </p>
               </div>
             ) : null}
 
-            <div className="border-t border-border pt-1">
+            <div className="border-t border-border pt-3">
               <Button
                 type="button"
-                variant="outline"
+                variant="ghost"
                 aria-label="Sign out"
-                className="min-h-11 w-full justify-center gap-2 text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                className={MENU_ITEM_CLASS}
                 onClick={signOut}
               >
-                <LogOut aria-hidden="true" className="size-4" />
+                <LogOut
+                  aria-hidden="true"
+                  className="size-4 text-muted-foreground"
+                />
                 <span>Log out</span>
               </Button>
             </div>

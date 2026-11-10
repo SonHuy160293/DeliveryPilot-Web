@@ -67,14 +67,54 @@ describe("real workspace routes", () => {
       await screen.findByRole("heading", { name: f.workspace.name }),
     ).toBeVisible();
     expect(screen.queryByText("Last activity")).not.toBeInTheDocument();
-    await userEvent.type(
-      screen.getByLabelText("Filter loaded workspaces"),
-      "Second",
-    );
-    expect(screen.getByText(/No matching loaded workspaces/)).toBeVisible();
+    await userEvent.type(screen.getByLabelText("Search workspaces"), "Second");
+    expect(screen.getByText(/No matching workspaces/)).toBeVisible();
     await userEvent.click(screen.getByRole("button", { name: "Load more" }));
     expect(await screen.findByText("Second workspace")).toBeVisible();
     expect(cursors).toEqual([null, "opaque-page-two"]);
+  });
+  it("navigates workspace sections from the contextual sidebar", async () => {
+    renderOrganizationRoute(overview());
+    const user = userEvent.setup();
+    await screen.findByRole("heading", { name: f.workspace.name });
+    const sidebar = screen.getByRole("complementary", {
+      name: "Workspace sidebar",
+    });
+    const sections = within(sidebar).getByRole("navigation", {
+      name: "This workspace",
+    });
+    expect(
+      within(sections).getByRole("link", { name: "Overview" }),
+    ).toHaveAttribute("aria-current", "page");
+    expect(
+      screen.queryByRole("button", { name: "Members" }),
+    ).not.toBeInTheDocument();
+
+    await user.click(within(sections).getByRole("link", { name: "Members" }));
+    expect(screen.getByRole("tab", { name: "Members" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+    expect(
+      within(sections).getByRole("link", { name: "Members" }),
+    ).toHaveAttribute("aria-current", "page");
+  });
+  it("opens mobile navigation in a sheet and closes it after navigating", async () => {
+    renderOrganizationRoute(overview());
+    const user = userEvent.setup();
+    await screen.findByRole("heading", { name: f.workspace.name });
+    await user.click(screen.getByRole("button", { name: "Open navigation" }));
+    const sheet = screen.getByRole("dialog", { name: "Navigation" });
+    await user.click(within(sheet).getByRole("link", { name: "Audit" }));
+    await waitFor(() => {
+      expect(
+        screen.queryByRole("dialog", { name: "Navigation" }),
+      ).not.toBeInTheDocument();
+    });
+    expect(screen.getByRole("tab", { name: "Audit" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
   it("opens the workspace picker and filters loaded results", async () => {
     renderOrganizationRoute(overview());
@@ -86,18 +126,16 @@ describe("real workspace routes", () => {
       within(dialog).getByRole("link", { name: f.workspace.name }),
     ).toBeVisible();
     await user.type(
-      within(dialog).getByLabelText("Filter loaded workspaces"),
+      within(dialog).getByLabelText("Search workspaces"),
       "no match",
     );
-    expect(
-      within(dialog).getByText("No matching loaded workspaces."),
-    ).toBeVisible();
+    expect(within(dialog).getByText("No matching workspaces.")).toBeVisible();
     await user.keyboard("{Escape}");
     expect(
       screen.getByRole("button", { name: /switch workspace/i }),
     ).toHaveFocus();
   });
-  it("opens the user account menu and can view information details", async () => {
+  it("opens the user account menu and can view My Profile", async () => {
     renderOrganizationRoute(overview());
     const user = userEvent.setup();
     await screen.findByRole("heading", { name: f.workspace.name });
@@ -106,12 +144,10 @@ describe("real workspace routes", () => {
       name: "User account details",
     });
     expect(menu).toBeVisible();
-    await user.click(
-      within(menu).getByRole("button", { name: "Go to information details" }),
-    );
+    await user.click(within(menu).getByRole("button", { name: "My Profile" }));
     expect(
       within(menu).getByRole("region", {
-        name: "Account information details",
+        name: "My Profile details",
       }),
     ).toBeVisible();
     await user.keyboard("{Escape}");

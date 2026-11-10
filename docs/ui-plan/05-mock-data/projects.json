@@ -1,0 +1,175 @@
+{
+  "_note": "[ERD-DERIVED] ProjectDetail + ProjectBrief records. 'permissions' is the view for the mock current user Linh Pham (member PM). Fictional.",
+  "projects": [
+    {
+      "id": "019a4000-0000-7000-8000-000000000001",
+      "name": "Loyalty platform – Phase 1",
+      "purpose": "Replace the legacy points engine and launch the new member app for Larkspur stores.",
+      "kind": "Client",
+      "status": "Active",
+      "engagement": {
+        "id": "019a3000-0000-7000-8000-000000000001",
+        "clientDisplayName": "Larkspur Retail Group",
+        "engagementName": "Loyalty platform rebuild",
+        "agreementReference": "LRG-2026-014"
+      },
+      "sprintLengthWeeks": 2,
+      "myRoles": ["ProjectManager", "BusinessAnalyst"],
+      "myParticipantKind": "Member",
+      "hasActiveAdministrator": true,
+      "createdAt": "2026-09-20T03:15:00Z",
+      "clientProductOwner": {
+        "participantId": "019a4100-0000-7000-8000-000000000004",
+        "userId": "019a2000-0000-7000-8000-000000000007",
+        "displayName": "Tomasz Nowak",
+        "assignedAt": "2026-10-02T06:00:00Z",
+        "assignedByUserId": "019a2000-0000-7000-8000-000000000001"
+      },
+      "activatedAt": "2026-10-03T01:00:00Z",
+      "activatedByUserId": "019a2000-0000-7000-8000-000000000001",
+      "clientPoWaiverReason": null,
+      "createdByUserId": "019a2000-0000-7000-8000-000000000001",
+      "updatedAt": "2026-11-04T03:02:00Z",
+      "version": 14,
+      "permissions": {
+        "editBrief": true,
+        "editStakeholders": true,
+        "editCadence": true,
+        "manageParticipants": true,
+        "manageGuests": true,
+        "assignClientPo": false,
+        "activate": false,
+        "manageAdministrators": false,
+        "readHistory": true,
+        "share": true,
+        "changeEngagement": false
+      },
+      "brief": {
+        "projectId": "019a4000-0000-7000-8000-000000000001",
+        "problem": "Store staff cannot see a member's points balance at checkout, and the 2014 points engine fails during weekend peaks.",
+        "objectivesAndSuccessCriteria": "Balance visible at every till within 2 seconds. Points engine handles 300 transactions per second. 40% of active members use the app within 6 months of launch.",
+        "scopeAndExclusions": "In scope: member app (iOS, Android), new points engine, till integration for 48 stores. Out of scope: partner rewards, e-commerce site.",
+        "assumptions": "Larkspur provides till API sandbox access by 1 Nov 2026.",
+        "constraintsAndDependencies": "Holiday trading freeze 1 Dec 2026 – 8 Jan 2027: no production releases.",
+        "openQuestions": null,
+        "productGoal": "Members can earn and redeem points in-store and in the app with one balance, without staff assistance.",
+        "previousProductGoals": [
+          {
+            "value": "Launch a member app that shows points.",
+            "replacedAt": "2026-10-01T04:00:00Z",
+            "replacedByUserId": "019a2000-0000-7000-8000-000000000003"
+          }
+        ],
+        "updatedAt": "2026-11-04T03:02:00Z",
+        "updatedByUserId": "019a2000-0000-7000-8000-000000000004",
+        "version": 7
+      }
+    },
+    {
+      "id": "019a4000-0000-7000-8000-000000000002",
+      "name": "Fleet telemetry MVP",
+      "purpose": "Real-time vehicle location and fuel telemetry for Halden's 600 trucks.",
+      "kind": "Client",
+      "status": "Draft",
+      "engagement": {
+        "id": "019a3000-0000-7000-8000-000000000002",
+        "clientDisplayName": "Halden Logistics",
+        "engagementName": "Fleet telemetry MVP",
+        "agreementReference": "HL-SOW-07"
+      },
+      "sprintLengthWeeks": 2,
+      "myRoles": ["ProjectAdministrator"],
+      "myParticipantKind": "Member",
+      "hasActiveAdministrator": true,
+      "createdAt": "2026-11-05T02:00:00Z",
+      "clientProductOwner": null,
+      "activatedAt": null,
+      "activatedByUserId": null,
+      "clientPoWaiverReason": null,
+      "createdByUserId": "019a2000-0000-7000-8000-000000000003",
+      "updatedAt": "2026-11-06T02:00:00Z",
+      "version": 3,
+      "permissions": {
+        "editBrief": true,
+        "editStakeholders": true,
+        "editCadence": true,
+        "manageParticipants": true,
+        "manageGuests": true,
+        "assignClientPo": true,
+        "activate": true,
+        "manageAdministrators": true,
+        "readHistory": true,
+        "share": true,
+        "changeEngagement": false
+      },
+      "brief": {
+        "projectId": "019a4000-0000-7000-8000-000000000002",
+        "problem": "Dispatch relies on phone calls to locate trucks; fuel theft is detected weeks late.",
+        "objectivesAndSuccessCriteria": null,
+        "scopeAndExclusions": "Telematics ingestion, dispatcher map, fuel anomaly alerts. Excludes driver mobile app.",
+        "assumptions": null,
+        "constraintsAndDependencies": null,
+        "openQuestions": "Which telematics vendor will Halden standardize on?",
+        "productGoal": null,
+        "previousProductGoals": [],
+        "updatedAt": "2026-11-06T02:00:00Z",
+        "updatedByUserId": "019a2000-0000-7000-8000-000000000003",
+        "version": 2
+      },
+      "_readiness": {
+        "productGoal": false,
+        "sprintLength": true,
+        "projectManager": false,
+        "engagement": true,
+        "clientProductOwner": false
+      }
+    },
+    {
+      "id": "019a4000-0000-7000-8000-000000000003",
+      "name": "Internal design system",
+      "purpose": "Shared UI component library for Northwind client projects.",
+      "kind": "Internal",
+      "status": "Active",
+      "engagement": null,
+      "sprintLengthWeeks": 3,
+      "myRoles": ["Viewer"],
+      "myParticipantKind": "Member",
+      "hasActiveAdministrator": true,
+      "createdAt": "2026-08-01T02:00:00Z",
+      "clientProductOwner": null,
+      "activatedAt": "2026-08-05T02:00:00Z",
+      "activatedByUserId": "019a2000-0000-7000-8000-000000000002",
+      "clientPoWaiverReason": null,
+      "createdByUserId": "019a2000-0000-7000-8000-000000000002",
+      "updatedAt": "2026-10-20T02:00:00Z",
+      "version": 6,
+      "permissions": {
+        "editBrief": false,
+        "editStakeholders": false,
+        "editCadence": false,
+        "manageParticipants": false,
+        "manageGuests": false,
+        "assignClientPo": false,
+        "activate": false,
+        "manageAdministrators": false,
+        "readHistory": false,
+        "share": false,
+        "changeEngagement": false
+      },
+      "brief": {
+        "projectId": "019a4000-0000-7000-8000-000000000003",
+        "problem": "Each client project rebuilds the same form and table components.",
+        "objectivesAndSuccessCriteria": "Three client projects adopt the library by March 2027.",
+        "scopeAndExclusions": null,
+        "assumptions": null,
+        "constraintsAndDependencies": null,
+        "openQuestions": null,
+        "productGoal": "Teams start new client UIs from tested, accessible components.",
+        "previousProductGoals": [],
+        "updatedAt": "2026-08-04T02:00:00Z",
+        "updatedByUserId": "019a2000-0000-7000-8000-000000000002",
+        "version": 2
+      }
+    }
+  ]
+}
