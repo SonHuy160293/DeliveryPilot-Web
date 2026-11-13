@@ -81,10 +81,10 @@ describe("real workspace routes", () => {
       name: "Workspace sidebar",
     });
     const sections = within(sidebar).getByRole("navigation", {
-      name: "This workspace",
+      name: "Manage",
     });
     expect(
-      within(sections).getByRole("link", { name: "Overview" }),
+      within(sidebar).getByRole("link", { name: "Overview" }),
     ).toHaveAttribute("aria-current", "page");
     expect(
       screen.queryByRole("button", { name: "Members" }),

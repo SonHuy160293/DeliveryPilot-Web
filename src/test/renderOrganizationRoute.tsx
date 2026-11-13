@@ -1,5 +1,6 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { render } from "@testing-library/react";
+import type { ReactNode } from "react";
 import { MemoryRouter } from "react-router";
 import { AppRoutes } from "@/app/router";
 import { createQueryClient } from "@/lib/query/queryClient";
@@ -10,6 +11,7 @@ import { createInvitationFlow } from "@/features/workspaces/recipient/invitation
 export function renderOrganizationRoute(
   path: string,
   initialInvitation?: InvitationSecret,
+  extra?: ReactNode,
 ) {
   const client = createQueryClient();
   client.setDefaultOptions({
@@ -20,6 +22,7 @@ export function renderOrganizationRoute(
     <QueryClientProvider client={client}>
       <SessionCacheObserver />
       <MemoryRouter initialEntries={[path]}>
+        {extra}
         <AppRoutes
           initialInvitation={
             initialInvitation

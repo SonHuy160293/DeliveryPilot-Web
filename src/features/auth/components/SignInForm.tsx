@@ -35,8 +35,9 @@ function safeDestination(
     return ROUTES.workspaces;
   return state.from === ROUTES.workspaces ||
     isWorkspaceOverviewPath(state.from) ||
-    (state.from === ROUTES.joinWorkspace &&
-      continuationDestination === ROUTES.joinWorkspace)
+    ((state.from === ROUTES.joinWorkspace ||
+      state.from === ROUTES.joinProject) &&
+      continuationDestination === state.from)
     ? state.from
     : ROUTES.workspaces;
 }

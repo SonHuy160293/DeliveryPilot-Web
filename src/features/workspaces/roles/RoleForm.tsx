@@ -1,4 +1,4 @@
-import { useServerFieldErrors } from "@/features/workspaces/model/useServerFieldErrors";
+import { useServerFieldErrors } from "@/lib/useServerFieldErrors";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,12 +9,9 @@ import type { Role } from "@/features/workspaces/api/contracts";
 import type { ScopedOwner } from "@/features/workspaces/api/queries";
 import { workspaceApi } from "@/features/workspaces/api/workspaceApi";
 import { useWorkspaceMutation } from "@/features/workspaces/model/useWorkspaceMutation";
-import {
-  FormField,
-  TextareaField,
-} from "@/features/workspaces/components/FormField";
+import { FormField, TextareaField } from "@/components/FormField";
 import { ChoiceList } from "@/features/workspaces/components/ChoiceList";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
+import { ApiFeedback } from "@/components/ApiFeedback";
 import { RoleEditorActions } from "@/features/workspaces/roles/RoleEditorActions";
 import { permissionLabels } from "@/features/workspaces/roles/permissionLabels";
 

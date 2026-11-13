@@ -12,13 +12,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useAuthSession } from "@/features/auth/model/useAuthSession";
+import { useAuthSession } from "@/lib/api/useAuthSession";
 import { discoveryOptions } from "@/features/workspaces/api/queries";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { isForbidden } from "@/features/workspaces/model/useDeniedCleanup";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { isForbidden } from "@/lib/query/useDeniedCleanup";
 import { authSession } from "@/lib/api/authSession";
 import { ROUTES, workspaceOverviewPath } from "@/lib/routes";
 

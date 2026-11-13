@@ -5,8 +5,8 @@ import {
   resourceKey,
   type ScopedOwner,
 } from "@/features/workspaces/api/queries";
-import { ReadState } from "@/features/workspaces/components/ReadState";
-import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
+import { ReadState } from "@/components/ReadState";
+import { RefreshButton } from "@/components/ApiFeedback";
 import { InvitationSummary } from "@/features/workspaces/invitations/InvitationSummary";
 import { InvitationActions } from "@/features/workspaces/invitations/InvitationActions";
 

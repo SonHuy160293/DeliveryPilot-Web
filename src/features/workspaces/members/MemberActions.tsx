@@ -17,12 +17,9 @@ import {
 } from "@/features/workspaces/api/queries";
 import { workspaceApi } from "@/features/workspaces/api/workspaceApi";
 import { useWorkspaceMutation } from "@/features/workspaces/model/useWorkspaceMutation";
-import { ConfirmAction } from "@/features/workspaces/components/ConfirmAction";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
+import { ConfirmAction } from "@/components/ConfirmAction";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { ApiFeedback } from "@/components/ApiFeedback";
 
 type Action = {
   kind: "grant" | "revoke" | "remove" | "demote";

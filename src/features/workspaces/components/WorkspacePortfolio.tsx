@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 import { Button } from "@/components/ui/button";
 import type { SessionOwner } from "@/features/workspaces/api/request";
 import { WorkspaceCreateDialog } from "@/features/workspaces/WorkspaceCreateDialog";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
+import { ApiFeedback } from "@/components/ApiFeedback";
 import { PortfolioStats } from "@/features/workspaces/components/PortfolioStats";
 import { WorkspaceCollection } from "@/features/workspaces/components/WorkspaceCollection";
 import {

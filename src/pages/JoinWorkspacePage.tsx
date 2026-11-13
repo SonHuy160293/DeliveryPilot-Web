@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Navigate } from "react-router";
 import { PageHeader } from "@/components/PageHeader";
 import { ScreenState } from "@/components/ScreenState";
-import { useAuthSession } from "@/features/auth/model/useAuthSession";
+import { useAuthSession } from "@/lib/api/useAuthSession";
 import { useInvitationFlow } from "@/features/workspaces/recipient/invitationContext";
 import { authSession } from "@/lib/api/authSession";
 import { ROUTES } from "@/lib/routes";

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/select";
 import { lifecycle } from "@/features/workspaces/api/contracts";
 import type { OfferStatus } from "@/features/workspaces/api/queries";
-import { formatStatus } from "@/features/workspaces/model/formatters";
+import { formatStatus } from "@/lib/format";
 
 export function StatusFilter({
   id,

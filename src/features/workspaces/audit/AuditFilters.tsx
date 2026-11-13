@@ -18,7 +18,7 @@ import {
   auditInput,
   type AuditInput,
 } from "@/features/workspaces/api/auditContracts";
-import { FormField } from "@/features/workspaces/components/FormField";
+import { FormField } from "@/components/FormField";
 import { auditLabels } from "@/features/workspaces/audit/auditLabels";
 import { AuditAdvancedFields } from "@/features/workspaces/audit/AuditAdvancedFields";
 

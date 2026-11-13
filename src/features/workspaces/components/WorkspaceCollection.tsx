@@ -10,10 +10,7 @@ import {
   PortfolioToolbar,
   type PortfolioShape,
 } from "@/features/workspaces/components/PortfolioToolbar";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
+import { ReadState, LoadMore } from "@/components/ReadState";
 import { WorkspaceCreateTile } from "@/features/workspaces/components/WorkspaceCreateTile";
 import {
   ALL_ROLES,
@@ -23,7 +20,7 @@ import {
   roleNames,
   shapePortfolio,
 } from "@/features/workspaces/model/portfolio";
-import { isForbidden } from "@/features/workspaces/model/useDeniedCleanup";
+import { isForbidden } from "@/lib/query/useDeniedCleanup";
 
 const DEFAULT_SHAPE: PortfolioShape = {
   tab: "all",

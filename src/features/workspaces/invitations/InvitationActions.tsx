@@ -5,7 +5,7 @@ import { roleIds } from "@/features/workspaces/api/inputs";
 import type { ScopedOwner } from "@/features/workspaces/api/queries";
 import { workspaceApi } from "@/features/workspaces/api/workspaceApi";
 import { useWorkspaceMutation } from "@/features/workspaces/model/useWorkspaceMutation";
-import { ConfirmAction } from "@/features/workspaces/components/ConfirmAction";
+import { ConfirmAction } from "@/components/ConfirmAction";
 import { RolePicker } from "@/features/workspaces/roles/RolePicker";
 
 type Action = { kind: "resend" | "reissue" | "cancel"; reason: string | null };

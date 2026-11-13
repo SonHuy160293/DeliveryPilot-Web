@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { Button } from "@/components/ui/button";
 import type { SessionOwner } from "@/features/workspaces/api/request";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
-import { ConfirmAction } from "@/features/workspaces/components/ConfirmAction";
+import { ApiFeedback } from "@/components/ApiFeedback";
+import { ConfirmAction } from "@/components/ConfirmAction";
 import { useRecipientResponse } from "@/features/workspaces/recipient/useRecipientResponse";
-import { formatInstant } from "@/features/workspaces/model/formatters";
+import { formatInstant } from "@/lib/format";
 import { ROUTES } from "@/lib/routes";
 
 export default function JoinInvitation({ owner }: { owner: SessionOwner }) {

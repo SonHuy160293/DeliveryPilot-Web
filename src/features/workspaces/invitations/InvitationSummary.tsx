@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import type { Invitation } from "@/features/workspaces/api/contracts";
-import {
-  formatInstant,
-  formatNumber,
-  formatStatus,
-} from "@/features/workspaces/model/formatters";
+import { formatInstant, formatNumber, formatStatus } from "@/lib/format";
 
 export function InvitationSummary({ invitation }: { invitation: Invitation }) {
   const [now] = useState(() => Date.now());

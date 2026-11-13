@@ -9,7 +9,13 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Link, useMatch, useSearchParams } from "react-router";
-import { ROUTES, workspaceOverviewPath } from "@/lib/routes";
+import {
+  ROUTES,
+  workspaceOverviewPath,
+  workspaceProjectsPath,
+  workspaceEngagementsPath,
+} from "@/lib/routes";
+import type { WorkspaceNavigation } from "@/lib/workspaceNavigation";
 import { cn } from "@/lib/utils";
 import { BrandMark, BrandWord } from "@/layouts/Brand";
 import { NavGroup, NavItem } from "@/layouts/SidebarNav";
@@ -23,30 +29,40 @@ import {
 
 export const APP_SIDEBAR_ID = "app-sidebar";
 
-const SECTION_ICONS: Record<WorkspaceSection, LucideIcon> = {
+const SECTION_ICONS: Partial<Record<WorkspaceSection, LucideIcon>> = {
   overview: LayoutDashboard,
   members: Users,
   roles: KeyRound,
   invitations: MailPlus,
   ownership: Crown,
   audit: ScrollText,
+  "client-links": Users,
+  "projects-recovery": Crown,
 };
 
 /** Shared by the desktop rail and the mobile Sheet. */
 export function SidebarContent({
   collapsed = false,
   onNavigate,
+  navigation,
 }: {
   collapsed?: boolean;
   onNavigate?: () => void;
+  navigation?: WorkspaceNavigation;
 }) {
   const portfolio = useMatch(ROUTES.workspaces);
-  const workspace = useMatch(ROUTES.workspaceOverview);
+  const workspace = useMatch({ path: ROUTES.workspaceOverview, end: false });
+  const projects = useMatch({ path: ROUTES.workspaceProjects, end: false });
+  const engagements = useMatch({
+    path: ROUTES.workspaceEngagements,
+    end: false,
+  });
+  const overview = useMatch(ROUTES.workspaceOverview);
   const [params] = useSearchParams();
   const slug = workspace?.params.workspaceSlug;
   const section = readWorkspaceSection(params);
   return (
-    <div className="flex flex-col gap-6 overflow-hidden">
+    <div className="flex shrink-0 flex-col gap-6 overflow-hidden">
       <Link
         to={ROUTES.workspaces}
         title={collapsed ? "DeliveryPilot" : undefined}
@@ -80,25 +96,74 @@ export function SidebarContent({
         />
       </NavGroup>
       {slug ? (
-        <NavGroup label="This workspace" collapsed={collapsed}>
-          {WORKSPACE_SECTIONS.map(({ value, label }) => (
+        <>
+          <NavGroup label="Workspace" collapsed={collapsed}>
             <NavItem
-              key={value}
-              to={`${workspaceOverviewPath(slug)}${workspaceSectionSearch(value)}`}
-              label={label}
-              Icon={SECTION_ICONS[value]}
-              active={section === value}
+              to={workspaceOverviewPath(slug)}
+              label="Overview"
+              Icon={LayoutDashboard}
+              active={Boolean(overview) && section === "overview"}
               collapsed={collapsed}
               onNavigate={onNavigate}
             />
-          ))}
-        </NavGroup>
+          </NavGroup>
+          <NavGroup label="Delivery" collapsed={collapsed}>
+            <NavItem
+              to={workspaceProjectsPath(slug)}
+              label="Projects"
+              Icon={Layers}
+              active={Boolean(projects)}
+              collapsed={collapsed}
+              onNavigate={onNavigate}
+            />
+            {navigation?.engagements ? (
+              <NavItem
+                to={workspaceEngagementsPath(slug)}
+                label="Engagements"
+                Icon={ScrollText}
+                active={Boolean(engagements)}
+                collapsed={collapsed}
+                onNavigate={onNavigate}
+              />
+            ) : null}
+          </NavGroup>
+          <NavGroup label="Manage" collapsed={collapsed}>
+            {WORKSPACE_SECTIONS.flatMap(({ value, label }) => {
+              if (
+                value === "overview" ||
+                (value === "client-links" && !navigation?.clientLinks) ||
+                (value === "projects-recovery" && !navigation?.projectRecovery)
+              )
+                return [];
+              const Icon = SECTION_ICONS[value];
+              return Icon ? (
+                <NavItem
+                  key={value}
+                  to={`${workspaceOverviewPath(slug)}${workspaceSectionSearch(value)}`}
+                  label={label}
+                  Icon={Icon}
+                  active={Boolean(overview) && section === value}
+                  collapsed={collapsed}
+                  onNavigate={onNavigate}
+                />
+              ) : (
+                []
+              );
+            })}
+          </NavGroup>
+        </>
       ) : null}
     </div>
   );
 }
 
-export function AppSidebar({ collapsed }: { collapsed: boolean }) {
+export function AppSidebar({
+  collapsed,
+  navigation,
+}: {
+  collapsed: boolean;
+  navigation?: WorkspaceNavigation;
+}) {
   return (
     <aside
       id={APP_SIDEBAR_ID}
@@ -110,7 +175,7 @@ export function AppSidebar({ collapsed }: { collapsed: boolean }) {
       )}
     >
       <div className="sticky top-4">
-        <SidebarContent collapsed={collapsed} />
+        <SidebarContent collapsed={collapsed} navigation={navigation} />
       </div>
     </aside>
   );

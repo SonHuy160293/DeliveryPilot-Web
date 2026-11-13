@@ -8,6 +8,10 @@ import {
   captureInvitationFragment,
   createInvitationFlow,
 } from "@/features/workspaces/recipient/invitationFlow";
+import {
+  captureProjectInvitationFragment,
+  createProjectInvitationFlow,
+} from "@/features/projects/guest-invitations/recipient/invitationFlow";
 
 const rootElement = document.getElementById("root");
 
@@ -16,11 +20,17 @@ if (!rootElement) {
 }
 
 const initialInvitation = createInvitationFlow(captureInvitationFragment());
+const initialProjectInvitation = createProjectInvitationFlow(
+  captureProjectInvitationFragment(),
+);
 createRoot(rootElement).render(
   <StrictMode>
     <QueryProvider>
       <SessionCacheObserver />
-      <AppRouter initialInvitation={initialInvitation} />
+      <AppRouter
+        initialInvitation={initialInvitation}
+        initialProjectInvitation={initialProjectInvitation}
+      />
     </QueryProvider>
   </StrictMode>,
 );

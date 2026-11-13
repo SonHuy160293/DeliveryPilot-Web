@@ -7,15 +7,9 @@ import {
   resourceKey,
   type ScopedOwner,
 } from "@/features/workspaces/api/queries";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
-import {
-  formatInstant,
-  formatNumber,
-} from "@/features/workspaces/model/formatters";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { RefreshButton } from "@/components/ApiFeedback";
+import { formatInstant, formatNumber } from "@/lib/format";
 import { AuditFilters } from "@/features/workspaces/audit/AuditFilters";
 import { AuditChanges } from "@/features/workspaces/audit/AuditChanges";
 import { auditLabels } from "@/features/workspaces/audit/auditLabels";

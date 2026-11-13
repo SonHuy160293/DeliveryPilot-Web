@@ -16,14 +16,11 @@ import {
   resourceKey,
   type ScopedOwner,
 } from "@/features/workspaces/api/queries";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { RefreshButton } from "@/components/ApiFeedback";
 import { MemberDetail } from "@/features/workspaces/members/MemberDetail";
 import { RoleBadges } from "@/features/workspaces/components/RoleBadges";
-import { formatStatus } from "@/features/workspaces/model/formatters";
+import { formatStatus } from "@/lib/format";
 
 export default function MembersPanel({ scope }: { scope: ScopedOwner }) {
   const [status, setStatus] = useState<"active" | "removed" | "suspended">(

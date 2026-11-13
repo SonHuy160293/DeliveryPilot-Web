@@ -1,4 +1,4 @@
-import { formatNumber } from "@/features/workspaces/model/formatters";
+import { formatNumber } from "@/lib/format";
 import type { AuditEvent } from "@/features/workspaces/api/auditContracts";
 
 const labels: Readonly<Record<string, string>> = {

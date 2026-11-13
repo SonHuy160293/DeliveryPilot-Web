@@ -19,8 +19,13 @@ import {
 import { BrandMark, BrandWord } from "@/layouts/Brand";
 import { ROUTES } from "@/lib/routes";
 import { initializeTheme } from "@/lib/theme";
+import type { WorkspaceNavigation } from "@/lib/workspaceNavigation";
 
-function MobileNavigation() {
+function MobileNavigation({
+  navigation,
+}: {
+  navigation?: WorkspaceNavigation;
+}) {
   const [open, setOpen] = useState(false);
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -43,6 +48,7 @@ function MobileNavigation() {
           </SheetDescription>
         </SheetHeader>
         <SidebarContent
+          navigation={navigation}
           onNavigate={() => {
             setOpen(false);
           }}
@@ -55,9 +61,13 @@ function MobileNavigation() {
 export function AppLayout({
   workspaceControl,
   breadcrumbs,
+  navigation,
+  content,
 }: {
   workspaceControl?: ReactNode;
   breadcrumbs?: ReactNode;
+  navigation?: WorkspaceNavigation;
+  content?: ReactNode;
 }) {
   useLayoutEffect(initializeTheme, []);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -73,12 +83,12 @@ export function AppLayout({
         Skip to content
       </a>
       <div className="flex min-h-svh">
-        <AppSidebar collapsed={sidebarCollapsed} />
+        <AppSidebar collapsed={sidebarCollapsed} navigation={navigation} />
         <div className="flex min-w-0 flex-1 flex-col">
           <header className="sticky top-0 z-20 border-b border-border bg-card">
             <div className="flex min-h-16 items-center justify-between gap-3 px-4 md:px-8">
               <div className="flex min-w-0 items-center gap-2 md:hidden">
-                <MobileNavigation />
+                <MobileNavigation navigation={navigation} />
                 <Link
                   to={ROUTES.workspaces}
                   className="flex min-w-0 items-center gap-3 text-lg"
@@ -120,7 +130,7 @@ export function AppLayout({
             tabIndex={-1}
             className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 md:px-8 md:py-12"
           >
-            <Outlet />
+            {content ?? <Outlet />}
           </main>
         </div>
       </div>

@@ -9,20 +9,14 @@ import {
   type OfferStatus,
   type ScopedOwner,
 } from "@/features/workspaces/api/queries";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
+import { ReadState, LoadMore } from "@/components/ReadState";
 import { StatusFilter } from "@/features/workspaces/components/StatusFilter";
-import {
-  ApiFeedback,
-  RefreshButton,
-} from "@/features/workspaces/components/ApiFeedback";
+import { ApiFeedback, RefreshButton } from "@/components/ApiFeedback";
 import { IssueInvitationForm } from "@/features/workspaces/invitations/IssueInvitationForm";
 import { InvitationDetail } from "@/features/workspaces/invitations/InvitationDetail";
 import { InvitationSummary } from "@/features/workspaces/invitations/InvitationSummary";
 import { InvitationActions } from "@/features/workspaces/invitations/InvitationActions";
-import { formatStatus } from "@/features/workspaces/model/formatters";
+import { formatStatus } from "@/lib/format";
 
 export default function InvitationsPanel({ scope }: { scope: ScopedOwner }) {
   const [status, setStatus] = useState<OfferStatus>("pending");

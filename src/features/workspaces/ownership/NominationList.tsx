@@ -3,10 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { discoveryOptions } from "@/features/workspaces/api/queries";
 import type { Member, Nomination } from "@/features/workspaces/api/contracts";
 import type { SessionOwner } from "@/features/workspaces/api/request";
-import {
-  formatInstant,
-  formatStatus,
-} from "@/features/workspaces/model/formatters";
+import { formatInstant, formatStatus } from "@/lib/format";
 import { NominationActions } from "@/features/workspaces/ownership/NominationActions";
 
 export function NominationList({

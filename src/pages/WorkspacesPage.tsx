@@ -1,4 +1,4 @@
-import { useAuthSession } from "@/features/auth/model/useAuthSession";
+import { useAuthSession } from "@/lib/api/useAuthSession";
 import { WorkspacePortfolio } from "@/features/workspaces/components/WorkspacePortfolio";
 import { authSession } from "@/lib/api/authSession";
 

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { LogOut, User, UserRound } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
 import { authSession } from "@/lib/api/authSession";
-import { useAuthSession } from "@/features/auth/model/useAuthSession";
+import { useAuthSession } from "@/lib/api/useAuthSession";
 import { clearSessionCache } from "@/lib/query/queryScope";
 import { ROUTES } from "@/lib/routes";
 
@@ -133,6 +133,17 @@ export function UserAccountMenu() {
                 </p>
               </div>
             ) : null}
+
+            <Button asChild variant="ghost" className={MENU_ITEM_CLASS}>
+              <Link
+                to={ROUTES.portal}
+                onClick={() => {
+                  setOpen(false);
+                }}
+              >
+                Client portal
+              </Link>
+            </Button>
 
             <div className="border-t border-border pt-3">
               <Button

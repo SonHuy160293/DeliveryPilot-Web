@@ -4,14 +4,11 @@ import {
   resourceKey,
   type ScopedOwner,
 } from "@/features/workspaces/api/queries";
-import { ReadState } from "@/features/workspaces/components/ReadState";
-import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
+import { ReadState } from "@/components/ReadState";
+import { RefreshButton } from "@/components/ApiFeedback";
 import { RoleBadges } from "@/features/workspaces/components/RoleBadges";
 import { MemberActions } from "@/features/workspaces/members/MemberActions";
-import {
-  formatInstant,
-  formatStatus,
-} from "@/features/workspaces/model/formatters";
+import { formatInstant, formatStatus } from "@/lib/format";
 
 export function MemberDetail({
   scope,

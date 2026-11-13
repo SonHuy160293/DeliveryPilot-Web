@@ -8,6 +8,8 @@ export const WORKSPACE_SECTIONS = [
   { value: "invitations", label: "Invitations" },
   { value: "ownership", label: "Ownership" },
   { value: "audit", label: "Audit" },
+  { value: "client-links", label: "Client links" },
+  { value: "projects-recovery", label: "Project recovery" },
 ] as const;
 
 export type WorkspaceSection = (typeof WORKSPACE_SECTIONS)[number]["value"];

@@ -1,4 +1,4 @@
-import { useServerFieldErrors } from "@/features/workspaces/model/useServerFieldErrors";
+import { useServerFieldErrors } from "@/lib/useServerFieldErrors";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
@@ -6,11 +6,11 @@ import { issueInput, type IssueInput } from "@/features/workspaces/api/inputs";
 import type { ScopedOwner } from "@/features/workspaces/api/queries";
 import { workspaceApi } from "@/features/workspaces/api/workspaceApi";
 import { useWorkspaceMutation } from "@/features/workspaces/model/useWorkspaceMutation";
-import { useRateLimit } from "@/features/workspaces/model/useRateLimit";
+import { useRateLimit } from "@/lib/api/useRateLimit";
 import { RolePicker } from "@/features/workspaces/roles/RolePicker";
-import { FormField } from "@/features/workspaces/components/FormField";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
-import { RetryDelay } from "@/features/workspaces/components/RetryDelay";
+import { FormField } from "@/components/FormField";
+import { ApiFeedback } from "@/components/ApiFeedback";
+import { RetryDelay } from "@/components/RetryDelay";
 import type { Invitation } from "@/features/workspaces/api/contracts";
 
 const serverFields = ["recipientEmail", "roleIds"] as const;

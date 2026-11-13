@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { safeReason } from "@/lib/safeReason";
 import {
   lifecycle,
   memberStatus,
@@ -6,23 +7,13 @@ import {
   uuid,
 } from "@/features/workspaces/api/contracts";
 
+export { safeReason } from "@/lib/safeReason";
+
 export const workspaceName = z
   .string()
   .trim()
   .min(1, "Enter a workspace name.")
   .max(160, "Use 160 characters or fewer.");
-export const safeReason = z
-  .string()
-  .trim()
-  .min(1, "Enter a reason.")
-  .max(1000, "Use 1,000 characters or fewer.")
-  .refine(
-    (value) =>
-      !/(?:https?:\/\/|www\.|\b\S+@\S+\.\S+|bearer\s|(?:token|password|secret)\s*=)/i.test(
-        value,
-      ),
-    "Use a business reason without links, email addresses, or credentials.",
-  );
 export const optionalReason = safeReason.nullable().optional();
 export const pageInput = z
   .object({

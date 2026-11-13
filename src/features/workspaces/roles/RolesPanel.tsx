@@ -11,12 +11,9 @@ import {
 } from "@/features/workspaces/api/queries";
 import { workspaceApi } from "@/features/workspaces/api/workspaceApi";
 import { useWorkspaceMutation } from "@/features/workspaces/model/useWorkspaceMutation";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
-import { ConfirmAction } from "@/features/workspaces/components/ConfirmAction";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { RefreshButton } from "@/components/ApiFeedback";
+import { ConfirmAction } from "@/components/ConfirmAction";
 import { RoleForm } from "@/features/workspaces/roles/RoleForm";
 
 export default function RolesPanel({ scope }: { scope: ScopedOwner }) {

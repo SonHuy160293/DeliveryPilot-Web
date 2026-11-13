@@ -6,10 +6,7 @@ import {
   type ScopedOwner,
 } from "@/features/workspaces/api/queries";
 import { ChoiceList } from "@/features/workspaces/components/ChoiceList";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
+import { ReadState, LoadMore } from "@/components/ReadState";
 
 export function RolePicker({
   scope,

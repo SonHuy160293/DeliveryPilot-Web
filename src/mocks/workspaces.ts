@@ -200,6 +200,69 @@ export const organizationPortfolioLongName = {
     .slice(0, 160),
 };
 
+/** Fictional current-membership/catalog combinations for navigation boundary tests. */
+export const workspaceNavigationFixtures = {
+  owner: {
+    member: organizationFixtures.member,
+    roles: [
+      {
+        ...organizationFixtures.role,
+        id: ids.ownerRole,
+        code: "owner",
+        name: "Owner",
+        origin: "system",
+        permissionCodes: [
+          "organization.engagements.create",
+          "organization.engagements.manage",
+        ],
+      },
+    ],
+  },
+  admin: {
+    member: {
+      ...organizationFixtures.member,
+      roles: [{ id: ids.role, code: "admin", name: "Admin" }],
+    },
+    roles: [
+      {
+        ...organizationFixtures.role,
+        code: "admin",
+        name: "Admin",
+        origin: "system",
+        permissionCodes: ["organization.engagements.manage"],
+      },
+    ],
+  },
+  member: {
+    member: {
+      ...organizationFixtures.member,
+      roles: [{ id: ids.memberRole, code: "member", name: "Member" }],
+    },
+    roles: [
+      {
+        ...organizationFixtures.role,
+        id: ids.memberRole,
+        code: "member",
+        name: "Member",
+        origin: "system",
+        permissionCodes: [],
+      },
+    ],
+  },
+  reader: {
+    member: {
+      ...organizationFixtures.member,
+      roles: [{ id: ids.role, code: "role-reviewer", name: "Reviewer" }],
+    },
+    roles: [
+      {
+        ...organizationFixtures.role,
+        permissionCodes: ["organization.engagements.read-all"],
+      },
+    ],
+  },
+};
+
 /** Contract audit projections, with fictional IDs and deliberately nullable history. */
 export const auditChangeSamples = [
   {

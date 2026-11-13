@@ -9,13 +9,10 @@ import {
   type OfferStatus,
 } from "@/features/workspaces/api/queries";
 import { StatusFilter } from "@/features/workspaces/components/StatusFilter";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { RefreshButton } from "@/components/ApiFeedback";
 import { NominationList } from "@/features/workspaces/ownership/NominationList";
-import { formatInstant } from "@/features/workspaces/model/formatters";
+import { formatInstant } from "@/lib/format";
 
 export const PERSONAL_NOMINATIONS_ID = "personal-nominations";
 

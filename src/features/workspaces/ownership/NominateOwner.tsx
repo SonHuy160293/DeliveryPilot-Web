@@ -16,12 +16,9 @@ import {
 } from "@/features/workspaces/api/queries";
 import { workspaceApi } from "@/features/workspaces/api/workspaceApi";
 import { useWorkspaceMutation } from "@/features/workspaces/model/useWorkspaceMutation";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { ConfirmAction } from "@/features/workspaces/components/ConfirmAction";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { ConfirmAction } from "@/components/ConfirmAction";
+import { ApiFeedback } from "@/components/ApiFeedback";
 
 export function NominateOwner({ scope }: { scope: ScopedOwner }) {
   const query = useInfiniteQuery(membersOptions(scope));

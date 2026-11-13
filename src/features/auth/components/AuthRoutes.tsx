@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from "react-router";
-import { useAuthSession } from "@/features/auth/model/useAuthSession";
+import { useAuthSession } from "@/lib/api/useAuthSession";
 import { ROUTES } from "@/lib/routes";
 
 /** The server remains the authorization authority; this guard only manages navigation. */
@@ -25,11 +25,12 @@ export function AnonymousOnly({
   resolveRedirect?: () => string | undefined;
 }) {
   const session = useAuthSession();
+  const redirect = resolveRedirect?.();
   return session.status === "authenticated" ? (
     <Navigate
       to={
-        resolveRedirect?.() === ROUTES.joinWorkspace
-          ? ROUTES.joinWorkspace
+        redirect === ROUTES.joinWorkspace || redirect === ROUTES.joinProject
+          ? redirect
           : ROUTES.workspaces
       }
       replace

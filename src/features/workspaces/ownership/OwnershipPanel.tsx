@@ -8,11 +8,8 @@ import {
   type ScopedOwner,
 } from "@/features/workspaces/api/queries";
 import { StatusFilter } from "@/features/workspaces/components/StatusFilter";
-import {
-  ReadState,
-  LoadMore,
-} from "@/features/workspaces/components/ReadState";
-import { RefreshButton } from "@/features/workspaces/components/ApiFeedback";
+import { ReadState, LoadMore } from "@/components/ReadState";
+import { RefreshButton } from "@/components/ApiFeedback";
 import { NominationList } from "@/features/workspaces/ownership/NominationList";
 import { NominateOwner } from "@/features/workspaces/ownership/NominateOwner";
 

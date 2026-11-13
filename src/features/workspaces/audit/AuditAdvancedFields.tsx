@@ -1,5 +1,5 @@
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
-import { FormField } from "@/features/workspaces/components/FormField";
+import { FormField } from "@/components/FormField";
 import type { Values } from "@/features/workspaces/audit/AuditFilters";
 
 export function AuditAdvancedFields({

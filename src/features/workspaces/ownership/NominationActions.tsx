@@ -2,8 +2,8 @@ import type { Nomination } from "@/features/workspaces/api/contracts";
 import type { SessionOwner } from "@/features/workspaces/api/request";
 import { workspaceApi } from "@/features/workspaces/api/workspaceApi";
 import { useWorkspaceMutation } from "@/features/workspaces/model/useWorkspaceMutation";
-import { ConfirmAction } from "@/features/workspaces/components/ConfirmAction";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
+import { ConfirmAction } from "@/components/ConfirmAction";
+import { ApiFeedback } from "@/components/ApiFeedback";
 
 export function NominationActions({
   owner,

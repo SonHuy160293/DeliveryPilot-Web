@@ -1,4 +1,8 @@
-import { BrowserRouter, Link, Route, Routes, useMatch } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
+import { lazy, Suspense } from "react";
+import { ScreenState } from "@/components/ScreenState";
+import { AuthenticatedLayout } from "@/app/AuthenticatedLayout";
+import { ValidatedRouteIds } from "@/app/ValidatedRouteIds";
 import {
   AnonymousOnly,
   RequireAuth,
@@ -6,7 +10,7 @@ import {
 import { InvitationFlowBoundary } from "@/features/workspaces/recipient/InvitationFlowBoundary";
 import { useInvitationFlow } from "@/features/workspaces/recipient/invitationContext";
 import type { InvitationFlow } from "@/features/workspaces/recipient/invitationFlow";
-import { AppLayout } from "@/layouts/AppLayout";
+import { PortalLayout } from "@/layouts/PortalLayout";
 import { PublicLayout } from "@/layouts/PublicLayout";
 import { ROUTES } from "@/lib/routes";
 import { AuthPage } from "@/pages/AuthPage";
@@ -14,42 +18,63 @@ import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { WorkspacesPage } from "@/pages/WorkspacesPage";
 import { WorkspaceOverviewPage } from "@/pages/WorkspaceOverviewPage";
-import { WorkspaceSwitcher } from "@/features/workspaces/components/WorkspaceSwitcher";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { JoinWorkspacePage } from "@/pages/JoinWorkspacePage";
+import { EngagementsPage } from "@/pages/EngagementsPage";
+import { ProjectsPage } from "@/pages/ProjectsPage";
+import { ProjectDetailPage } from "@/pages/ProjectDetailPage";
+import { JoinProjectPage } from "@/pages/JoinProjectPage";
+import { PortalHomePage } from "@/pages/PortalHomePage";
+import { PortalProjectPage } from "@/pages/PortalProjectPage";
+import { ProjectInvitationFlowBoundary } from "@/features/projects/guest-invitations/recipient/ProjectInvitationFlowBoundary";
+import { useProjectInvitationFlow } from "@/features/projects/guest-invitations/recipient/invitationContext";
+import type { ProjectInvitationFlow } from "@/features/projects/guest-invitations/recipient/invitationFlow";
+
+const EngagementDetailPage = lazy(() =>
+  import("@/pages/EngagementDetailPage").then((module) => ({
+    default: module.EngagementDetailPage,
+  })),
+);
 
 export function AppRouter({
   initialInvitation,
+  initialProjectInvitation,
 }: {
   initialInvitation?: InvitationFlow;
+  initialProjectInvitation?: ProjectInvitationFlow;
 }) {
   return (
     <BrowserRouter>
-      <AppRoutes initialInvitation={initialInvitation} />
+      <AppRoutes
+        initialInvitation={initialInvitation}
+        initialProjectInvitation={initialProjectInvitation}
+      />
     </BrowserRouter>
   );
 }
 export function AppRoutes({
   initialInvitation,
+  initialProjectInvitation,
 }: {
   initialInvitation?: InvitationFlow;
+  initialProjectInvitation?: ProjectInvitationFlow;
 }) {
   return (
     <InvitationFlowBoundary initial={initialInvitation}>
-      <RouteTree />
+      <ProjectInvitationFlowBoundary initial={initialProjectInvitation}>
+        <RouteTree />
+      </ProjectInvitationFlowBoundary>
     </InvitationFlowBoundary>
   );
 }
 function RouteTree() {
   const flow = useInvitationFlow();
-  const continuation = () => (flow.get() ? ROUTES.joinWorkspace : undefined);
+  const projectFlow = useProjectInvitationFlow();
+  const continuation = () =>
+    projectFlow.get()
+      ? ROUTES.joinProject
+      : flow.get()
+        ? ROUTES.joinWorkspace
+        : undefined;
   return (
     <Routes>
       <Route element={<PublicLayout />}>
@@ -75,50 +100,46 @@ function RouteTree() {
           }
         />
         <Route path={ROUTES.joinWorkspace} element={<JoinWorkspacePage />} />
+        <Route path={ROUTES.joinProject} element={<JoinProjectPage />} />
         <Route path={ROUTES.notFound} element={<NotFoundPage />} />
       </Route>
       <Route element={<RequireAuth />}>
-        <Route element={<AuthenticatedLayout />}>
-          <Route path={ROUTES.workspaces} element={<WorkspacesPage />} />
-          <Route
-            path={ROUTES.workspaceOverview}
-            element={<WorkspaceOverviewPage />}
-          />
+        <Route element={<ValidatedRouteIds />}>
+          <Route element={<AuthenticatedLayout />}>
+            <Route path={ROUTES.workspaces} element={<WorkspacesPage />} />
+            <Route
+              path={ROUTES.workspaceOverview}
+              element={<WorkspaceOverviewPage />}
+            />
+            <Route
+              path={ROUTES.workspaceEngagements}
+              element={<EngagementsPage />}
+            />
+            <Route
+              path={ROUTES.workspaceEngagement}
+              element={
+                <Suspense
+                  fallback={<ScreenState status="loading" scope="engagement" />}
+                >
+                  <EngagementDetailPage />
+                </Suspense>
+              }
+            />
+            <Route path={ROUTES.workspaceProjects} element={<ProjectsPage />} />
+            <Route
+              path={ROUTES.workspaceProject}
+              element={<ProjectDetailPage />}
+            />
+          </Route>
+          <Route element={<PortalLayout />}>
+            <Route path={ROUTES.portal} element={<PortalHomePage />} />
+            <Route
+              path={ROUTES.portalProject}
+              element={<PortalProjectPage />}
+            />
+          </Route>
         </Route>
       </Route>
     </Routes>
-  );
-}
-
-function AuthenticatedLayout() {
-  const portfolio = useMatch(ROUTES.workspaces);
-  const breadcrumbs = (
-    <Breadcrumb>
-      <BreadcrumbList>
-        {portfolio ? (
-          <BreadcrumbItem>
-            <BreadcrumbPage>Workspaces</BreadcrumbPage>
-          </BreadcrumbItem>
-        ) : (
-          <>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to={ROUTES.workspaces}>Workspaces</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Workspace</BreadcrumbPage>
-            </BreadcrumbItem>
-          </>
-        )}
-      </BreadcrumbList>
-    </Breadcrumb>
-  );
-  return (
-    <AppLayout
-      breadcrumbs={breadcrumbs}
-      workspaceControl={<WorkspaceSwitcher />}
-    />
   );
 }

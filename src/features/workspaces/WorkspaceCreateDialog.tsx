@@ -1,4 +1,4 @@
-import { useServerFieldErrors } from "@/features/workspaces/model/useServerFieldErrors";
+import { useServerFieldErrors } from "@/lib/useServerFieldErrors";
 import type { RefObject } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,8 +16,8 @@ import {
 import { workspaceName } from "@/features/workspaces/api/inputs";
 import type { SessionOwner } from "@/features/workspaces/api/request";
 import { useWorkspaceCreation } from "@/features/workspaces/model/useWorkspaceCreation";
-import { ApiFeedback } from "@/features/workspaces/components/ApiFeedback";
-import { FormField } from "@/features/workspaces/components/FormField";
+import { ApiFeedback } from "@/components/ApiFeedback";
+import { FormField } from "@/components/FormField";
 import { workspaceOverviewPath } from "@/lib/routes";
 import { CreationRecovery } from "@/features/workspaces/components/CreationRecovery";
 
